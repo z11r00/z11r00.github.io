@@ -62,6 +62,30 @@
   </entry>
   
   <entry>
+    <title>工具类uniapp源码免费开源啦！</title>
+    <link href="https://www.zerofc.cn/2024/06/11/%E5%B7%A5%E5%85%B7%E7%B1%BBuniapp%E6%BA%90%E7%A0%81%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90/"/>
+    <id>https://www.zerofc.cn/2024/06/11/%E5%B7%A5%E5%85%B7%E7%B1%BBuniapp%E6%BA%90%E7%A0%81%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90/</id>
+    <published>2024-06-11T06:13:50.000Z</published>
+    <updated>2024-08-02T12:06:45.220Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一个基于uniapp开发的强大且实用的工具类APP，提供了包括图片处理、测算，信息查询和娱乐等常用的工具。如：文本加密解密、二维码生成与识别、九宫格切图、图片拼接、国旗头像、房贷和BMI计算器等，如同瑞士军刀一样方便好用~</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">🕙 项目基本保持每日更新，右上随手点个 🌟 Star 关注，这样才有持续下去的动力，谢谢～</span><br></pre></td></tr></table></figure><h2 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h2><p><strong>码云：</strong> <a href="https://gitee.com/gaoxingqufuhchao/bqs-toolsbox-uniapp">https://gitee.com/gaoxingqufuhchao/bqs-toolsbox-uniapp</a></p><p><strong>落地：</strong> <a href="https://www.zerofc.cn/market/">https://www.zerofc.cn/market/</a></p><p><strong>下载：</strong><a href="https://www.zerofc.cn/market/land_pages/bqs_toolsbox/index.html">https://www.zerofc.cn/market/land_pages/bqs_toolsbox/index.html</a></p><h2 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h2><p><img src="https://picx.zhimg.com/v2-273398a5b3a8c1df7f52db94bb2b454e_r.jpg" alt="img"></p><p><img src="https://picx.zhimg.com/v2-0b21a9804cc2f5844eeafe4116a51fc7_r.jpg" alt="img"></p><p><img src="https://picx.zhimg.com/v2-1a434a99ad838d6188f50b4ef8807aad_r.jpg" alt="img"></p><p><img src="https://pic1.zhimg.com/v2-db67476a7872d6cb5d6e47f6bdb969a9_r.jpg" alt="img"></p><p><img src="https://picx.zhimg.com/v2-bfb9d3b9bdd04a0759d4e959faf08779_r.jpg" alt="img"></p><p><img src="https://pica.zhimg.com/v2-832a9f56ade29405a57cad002508bf90_r.jpg" alt="img"></p><p><img src="https://pica.zhimg.com/v2-f7e16d34af9472befec3031bbd5557fc_r.jpg" alt="img"></p><h2 id="项目说明"><a href="#项目说明" class="headerlink" title="项目说明"></a>项目说明</h2><p>项目灵感来源于 前端铺子 ，前台基于Vue-uniApp，使用colorUi与uview框架，部分Demo参考uniApp插件市场等,感谢各位作者～</p><h2 id="特别声明"><a href="#特别声明" class="headerlink" title="特别声明"></a>特别声明</h2><p>本软件属于技术开源软件, 任何使用本源码从事商业活动，对别人和自己造成损失的，本人概不负责！</p><h2 id="功能规划"><a href="#功能规划" class="headerlink" title="功能规划"></a>功能规划</h2><h5 id="2024-08-增加2048小游戏、小霸王游戏机等经典小游戏"><a href="#2024-08-增加2048小游戏、小霸王游戏机等经典小游戏" class="headerlink" title="2024-08 : 增加2048小游戏、小霸王游戏机等经典小游戏"></a>2024-08 : 增加2048小游戏、小霸王游戏机等经典小游戏</h5><p><strong>2024-09 : 增加木鱼、摸鱼等娱乐性小工具</strong></p><h5 id="2024-10-增加编程博文和视频，代码资源等等"><a href="#2024-10-增加编程博文和视频，代码资源等等" class="headerlink" title="2024-10: 增加编程博文和视频，代码资源等等"></a>2024-10: 增加编程博文和视频，代码资源等等</h5><h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><ol><li>下载安装：「HBuildX」、「微信开发者工具」</li><li>扫码登录微信开发者工具</li><li>将项目拖进【HBuildX】- 运行 - 微信小程序 - 完成</li></ol><h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><blockquote><p>由于很多年没碰uniapp了，这次我想试一下uniapp统计，因为数据绝对了我更新的频率，而再次玩得时候却差点翻车！</p></blockquote><p>其实主要是Hbuild版本和官方策略原因，以前的时候app打包默认会勾选uni统计。而现在不但出了两个版本(1.0和2.0)，而且默认是不勾选的，需要自己挑选。重点是选择哪一个就会在对应版本的统计系统生效，也就是如果选了2.0再打开1.0的后台是看不到数据的，最后我看了文档才了解清楚。</p><p><img src="https://image-static.segmentfault.com/358/675/3586758235-66acc97a138d7_fix732" alt="img"></p><h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>做这个工具箱app主要有两个原因，一个是我做的一个微信小游戏还在备案中，目前是空档没啥事情；第二个是借机重新捡一下uniapp的内容，很多都已经忘了，所以工具箱app的更新迭代会慢一点。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;一个基于uniapp开发的强大且实用的工具类APP，提供了包括图片处理、测算，信息查询和娱乐等常用的工具。如：文本加密解密、二维码生成与识别</summary>
+      
+    
+    
+    
+    <category term="前端开发" scheme="https://www.zerofc.cn/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="uniapp" scheme="https://www.zerofc.cn/tags/uniapp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>零成本搭建个人图床服务器</title>
     <link href="https://www.zerofc.cn/2024/06/02/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>https://www.zerofc.cn/2024/06/02/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
