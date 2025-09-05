@@ -6,7 +6,7 @@
   <link href="https://www.zerofc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.zerofc.cn/"/>
-  <updated>2025-06-28T11:25:31.069Z</updated>
+  <updated>2025-09-05T11:39:35.329Z</updated>
   <id>https://www.zerofc.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在Unity3D中实现圆角效果？</title>
+    <link href="https://www.zerofc.cn/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/"/>
+    <id>https://www.zerofc.cn/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/</id>
+    <published>2025-08-28T08:13:50.000Z</published>
+    <updated>2025-09-05T11:39:35.329Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>有时候在Unity3D中，要实现一些组件的圆角效果，比如进度条，不像普通按钮是静态不动的，可以直接将图片做成圆角。但是进度条是有那种色块流动的效果，如果不做处理，里面的色块会溢出四个角落。</p><h1 id="二、实现前提"><a href="#二、实现前提" class="headerlink" title="二、实现前提"></a>二、实现前提</h1><p>1.须使用Image的UI元素。</p><p>2.父层Image元素须遮罩组件。</p><p>3.父层Image元素图片须有圆角png图。</p><h1 id="三、操作过程"><a href="#三、操作过程" class="headerlink" title="三、操作过程"></a>三、操作过程</h1><p>1.在场景中创建一个Image的UI元素，图片是黑色有圆角的png图片。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/1.jpg" alt="img"></p><p>2.在该Image中添加Mask组件（遮罩）。</p><p><img src="E:\4work\23md笔记\1_Hexo博客备份\如何在Unity3D中实现圆角效果？\img\如何在Unity3D中实现圆角效果？\2.jpg" alt="img"></p><p>3.在该Image下添加一个新的Image元素，Source Image选择一个其他颜色图。</p><p><img src="E:\4work\23md笔记\1_Hexo博客备份\如何在Unity3D中实现圆角效果？\img\如何在Unity3D中实现圆角效果？\3.jpg" alt="img"></p><p>4.对子级Image的Transform进行上下拖动，填充住父的遮罩就可以看到子级的元素也有圆角。</p><h1 id="四、写在后面"><a href="#四、写在后面" class="headerlink" title="四、写在后面"></a>四、写在后面</h1><p>以上的操作都是在Unity3D 2020.3中实现，除了用遮罩的方式实现圆角效果外，还可以用Shader，在效果上还没有锯齿，弧度更丝滑。后面有时间我再更新，以及如何在Unity3D中实现无缝循环的帧动画效果。</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
+    
+    
+    <summary type="html">如何在Unity3D中实现圆角效果？</summary>
+    
+    
+    
+    <category term="游戏开发" scheme="https://www.zerofc.cn/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Unity3D" scheme="https://www.zerofc.cn/tags/Unity3D/"/>
+    
+  </entry>
   
   <entry>
     <title>AI应用开发（二）：Blender建模助手</title>
@@ -412,27 +433,6 @@
     
     
     <category term="生活" scheme="https://www.zerofc.cn/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的2024年终总结，持续尝试</title>
-    <link href="https://www.zerofc.cn/2024/12/23/%E6%88%91%E7%9A%842024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E6%8C%81%E7%BB%AD%E5%B0%9D%E8%AF%95/"/>
-    <id>https://www.zerofc.cn/2024/12/23/%E6%88%91%E7%9A%842024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E6%8C%81%E7%BB%AD%E5%B0%9D%E8%AF%95/</id>
-    <published>2024-12-23T06:13:50.000Z</published>
-    <updated>2024-12-23T06:07:37.356Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>时光飞逝，一晃就到2024的年底了，按照我近年来的传统，我要复盘一下今年做过的关于探索收入多样性的事件。包括这一年的工作进展，收获的事项，遇到的各种问题，以及来年计划等，希望能对你有所参考意义。</p><p><img src="https://image-static.segmentfault.com/232/901/2329019790-67495ca328071_fix732" alt="img"></p><h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><ol><li><p>Cocos小游戏《忍者疾风转》开发，并上架到微信和抖音平台。</p></li><li><p>微信小程序《有用工具盒》开发并上架。</p></li><li><p>视频号《一曲小北》，主打编曲和吉他，首次开通广告分成计划。</p></li><li><p>QQ小程序《实用工具箱》上架，暂未开通广告分成。</p></li><li><p>微信公众号《ZERO开发》发布推文23篇，首次小绿书1篇，爆文5篇。</p></li><li><p>三个QQ短视频账号注册孵化，均已开通广告共享计划。</p></li><li><p>鸿蒙Next应用开发，暂未上架，发布相关教程3篇，视频1个。</p></li><li><p>全网粉丝数达20000人，含抖音账号《小北玩游戏》。</p></li><li><p>微信问一问《ZERO开发》，累计回答40个，推流3w+，粉丝132人。</p></li><li><p>重新搭建个人博客，加入独立博客联盟，友链，每日UV稳定破零。</p></li></ol><p><img src="https://image-static.segmentfault.com/336/491/3364910669-67495cac11bcf_fix732" alt="img"></p><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><h3 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h3><ol><li><p>工作上的开发语言学习，新增Go语言和鸿蒙Next的ArkTs。</p></li><li><p>单机游戏的Mod简单制作，游戏解包与封包。</p></li><li><p>Adobe Audition混音制作，用于视频号《一曲小北》更新。</p></li></ol><h3 id="收入"><a href="#收入" class="headerlink" title="收入"></a>收入</h3><ol><li><p>公众号《ZERO开发》广告收益，付费文章1篇支付3人，账号打赏4人。</p></li><li><p>视频号《北桥苏》、《一曲小北》原创视频，每日广告收益。</p></li><li><p>微信小游戏、抖音小游戏《忍者疾风转》每日激励广告收益。</p></li><li><p>微信小程序《有用工具盒》每日开屏广告、信息流广告收益。</p></li><li><p>其他内容创作平台收益，哔哩哔哩，知乎，今日头条，QQ短视频，大鱼号。</p></li></ol><h3 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h3><ol><li><p>加入副业交流群3个，小游戏、小程序开发交流群2个。</p></li><li><p>个人运营程序员技术交流群1个，小程序交流QQ群1个。</p></li><li><p>线下交友活动较缺失，2024年属于非常独来独往的一年。</p></li></ol><h3 id="投资"><a href="#投资" class="headerlink" title="投资"></a>投资</h3><p>年初我就关闭了自2019年末以来购买的所有基金，也错过了今年10月前后的一次A股大涨时机。转而放到了余额宝和微信零钱通，每天固定几块钱的收益。为什么要这样做，因为关于金融产品的收入方向，我现在并不了解所以持保守态度，以后再慢慢学，重资产投资我没有尝试就不赘述了。</p><p><img src="https://image-static.segmentfault.com/552/933/55293385-67495cb696533_fix732" alt="img"></p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol><li>个人产品自然流量普遍偏低</li></ol><p>因为以前技术崇拜，而不看重产品本身，导致入局独立开发比较晚，产品思维也跟不上，进一步影响我做出来的小程序，只能算是小应用而非产品。所以我现在才开始学习调研，需求分析，推广营销等等，毕竟独立产品开发是程序员晚期收入很重要的布局之一。</p><ol start="2"><li>视频创作方向不明确</li></ol><p>不管是我的短视频还是中视频账号风格还没定调，因为过去都是用来学习新东西后的记录视频，没有真人出镜和真人发声。平台既不给流量，在观感上也显得不真诚，给人种营销号的感觉，这个只能慢慢摸索方向，之后再尝试出镜和口播。</p><p><img src="https://image-static.segmentfault.com/893/939/89393987-67495cbf81eb5_fix732" alt="img"></p><h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><ol><li><p>2025年每周都写日志复盘，博客新增周刊栏目。</p></li><li><p>注册个人微信服务号，探索新方向，持续内容输出。 </p></li><li><p>直播弹幕小游戏，直播插件开发并上架。</p></li><li><p>用Unity3D引擎独立开发一个偏大型的单机游戏。</p></li><li><p>Blender、3D Max建模改模学习，Mod制作升级。</p></li><li><p>持续探索AI大模型个人项目变现，AI应用开发。</p></li><li><p>加大小红书内容更新力度，完成商单权限开通。</p></li><li><p>个人资源（代码，创作源文件）变现，网盘拉新。</p></li></ol><p><img src="https://image-static.segmentfault.com/185/484/1854843107-67495cc82284d_fix732" alt="img"></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>2024年的我的复盘结论就是 “持续尝试”，告别技术崇拜，但依然相信技术改变世界。二者不矛盾，因为技术服务于业务，建立在价值产出之上，任何优秀的代码结构终将会成为 “屎山”（有点俗）。</p><p>好的技术架构值得骄傲与推崇，但也只能延缓逐渐臃肿的进程，世界总是向熵增的方向演进，总是向混乱的方向发展，唯一不变的就是变，多方向尝试，多次推倒重来，就算是草台班子也能找到个方向，最后我也希望2025年的复盘主题是 “持续深耕”。</p><p><img src="https://image-static.segmentfault.com/284/079/2840796087-67495ccfd0bd4_fix732" alt="img"></p><p><img src="https://image-static.segmentfault.com/888/012/888012046-66b330428a248_fix732" alt="img"></p>]]></content>
-    
-    
-    <summary type="html">我的2024年终总结，持续尝试</summary>
-    
-    
-    
-    <category term="思维思考" scheme="https://www.zerofc.cn/categories/%E6%80%9D%E7%BB%B4%E6%80%9D%E8%80%83/"/>
-    
-    
-    <category term="年终总结" scheme="https://www.zerofc.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
