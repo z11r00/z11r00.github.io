@@ -6,7 +6,7 @@
   <link href="https://www.zerofc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.zerofc.cn/"/>
-  <updated>2025-09-05T11:39:35.329Z</updated>
+  <updated>2025-09-06T02:55:22.792Z</updated>
   <id>https://www.zerofc.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.zerofc.cn/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/"/>
     <id>https://www.zerofc.cn/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/</id>
     <published>2025-08-28T08:13:50.000Z</published>
-    <updated>2025-09-05T11:39:35.329Z</updated>
+    <updated>2025-09-06T02:55:22.792Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>有时候在Unity3D中，要实现一些组件的圆角效果，比如进度条，不像普通按钮是静态不动的，可以直接将图片做成圆角。但是进度条是有那种色块流动的效果，如果不做处理，里面的色块会溢出四个角落。</p><h1 id="二、实现前提"><a href="#二、实现前提" class="headerlink" title="二、实现前提"></a>二、实现前提</h1><p>1.须使用Image的UI元素。</p><p>2.父层Image元素须遮罩组件。</p><p>3.父层Image元素图片须有圆角png图。</p><h1 id="三、操作过程"><a href="#三、操作过程" class="headerlink" title="三、操作过程"></a>三、操作过程</h1><p>1.在场景中创建一个Image的UI元素，图片是黑色有圆角的png图片。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/1.jpg" alt="img"></p><p>2.在该Image中添加Mask组件（遮罩）。</p><p><img src="E:\4work\23md笔记\1_Hexo博客备份\如何在Unity3D中实现圆角效果？\img\如何在Unity3D中实现圆角效果？\2.jpg" alt="img"></p><p>3.在该Image下添加一个新的Image元素，Source Image选择一个其他颜色图。</p><p><img src="E:\4work\23md笔记\1_Hexo博客备份\如何在Unity3D中实现圆角效果？\img\如何在Unity3D中实现圆角效果？\3.jpg" alt="img"></p><p>4.对子级Image的Transform进行上下拖动，填充住父的遮罩就可以看到子级的元素也有圆角。</p><h1 id="四、写在后面"><a href="#四、写在后面" class="headerlink" title="四、写在后面"></a>四、写在后面</h1><p>以上的操作都是在Unity3D 2020.3中实现，除了用遮罩的方式实现圆角效果外，还可以用Shader，在效果上还没有锯齿，弧度更丝滑。后面有时间我再更新，以及如何在Unity3D中实现无缝循环的帧动画效果。</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>有时候在Unity3D中，要实现一些组件的圆角效果，比如进度条，不像普通按钮是静态不动的，可以直接将图片做成圆角。但是进度条是有那种色块流动的效果，如果不做处理，里面的色块会溢出四个角落。</p><h1 id="二、实现前提"><a href="#二、实现前提" class="headerlink" title="二、实现前提"></a>二、实现前提</h1><p>1.须使用Image的UI元素。</p><p>2.父层Image元素须遮罩组件。</p><p>3.父层Image元素图片须有圆角png图。</p><h1 id="三、操作过程"><a href="#三、操作过程" class="headerlink" title="三、操作过程"></a>三、操作过程</h1><p>1.在场景中创建一个Image的UI元素，图片是黑色有圆角的png图片。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/1.jpg" alt="img"></p><p>2.在该Image中添加Mask组件（遮罩）。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/2.jpg" alt="img"></p><p>3.在该Image下添加一个新的Image元素，Source Image选择一个其他颜色图。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/3.jpg" alt="img"></p><p>4.对子级Image的Transform进行上下拖动，填充住父的遮罩就可以看到子级的元素也有圆角。</p><h1 id="四、写在后面"><a href="#四、写在后面" class="headerlink" title="四、写在后面"></a>四、写在后面</h1><p>以上的操作都是在Unity3D 2020.3中实现，除了用遮罩的方式实现圆角效果外，还可以用Shader，在效果上还没有锯齿，弧度更丝滑。后面有时间我再更新，以及如何在Unity3D中实现无缝循环的帧动画效果。</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
     
     
     <summary type="html">如何在Unity3D中实现圆角效果？</summary>
