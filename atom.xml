@@ -6,7 +6,7 @@
   <link href="https://www.zerofc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.zerofc.cn/"/>
-  <updated>2025-09-06T02:55:22.792Z</updated>
+  <updated>2025-09-06T11:24:22.734Z</updated>
   <id>https://www.zerofc.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在Unity3D中实现无缝滚动动画？</title>
+    <link href="https://www.zerofc.cn/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/"/>
+    <id>https://www.zerofc.cn/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/</id>
+    <published>2025-08-29T08:13:50.000Z</published>
+    <updated>2025-09-06T11:24:22.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>对于游戏开发的动画，可能大部分是采用第三方的制作工具单独完成，然后导入Unity3D 2020.3中。但是有些组件动画，比如像进度条这种，因为要完成色块移动控制，所以在Unity3D中实现更好。</p><h1 id="二、操作流程"><a href="#二、操作流程" class="headerlink" title="二、操作流程"></a>二、操作流程</h1><h3 id="1-搭建基本结构"><a href="#1-搭建基本结构" class="headerlink" title="1.搭建基本结构"></a>1.搭建基本结构</h3><p>结构主要是先一个空对象，对象下添加Image对象作为进度条背景，与背景同级创建一个带Animation组件的对象，最后在带Animation组件对象下添加两个Image对象。</p><h3 id="2-添加需要组件"><a href="#2-添加需要组件" class="headerlink" title="2.添加需要组件"></a>2.添加需要组件</h3><p>Background添加Image组件；ObjAnima添加Rect Mask 2D组件和Animation组件；Animation01和Animation02添加Image组件。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/image-20250906191712611.png" alt="image-20250906191712611"></p><h3 id="3-创建Animation文件"><a href="#3-创建Animation文件" class="headerlink" title="3.创建Animation文件"></a>3.创建Animation文件</h3><p>在Assets资源管理中右键-&gt;Create-&gt;Animation，然后双击该文件打开Animation编辑器，点击Create保存到指定位置，文件后缀.anim。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/image-20250906171304257.png" alt="image-20250906171304257"></p><h3 id="4-Animation编辑"><a href="#4-Animation编辑" class="headerlink" title="4.Animation编辑"></a>4.Animation编辑</h3><p>进入编辑框内，点击“Add Property”，出现弹出小框，会出现当前有Animation下的子级，点击下拉会显示子级的属性，像上下移动就选择Anchored Position就可以。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/image-20250906174348718.png" alt="image-20250906174348718"></p><h3 id="5-添加关键帧"><a href="#5-添加关键帧" class="headerlink" title="5.添加关键帧"></a>5.添加关键帧</h3><p>为了实现无缝滚动，原理就是遮罩上一个图形往下移动，在视图中的图形往遮罩下面移动。也就只需对图形的Y轴进行操作。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/image-20250906175000535.png" alt="image-20250906175000535"></p><h3 id="6-匀速动画设置"><a href="#6-匀速动画设置" class="headerlink" title="6.匀速动画设置"></a>6.匀速动画设置</h3><p>设置时间轴默认情况是有缓入缓出的效果，播放的时候就没有无缝滚动的效果，这时候就需要在Curves下设置匀速。<br>按 “shift”选中两个关键帧，右键的时候不要离开关键帧的点，然后选择“Both Tangents‘，再点击 ”Linear“，看到线条变成直线就表示匀速播放了。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/image-20250906175434470.png" alt="image-20250906175434470"></p><h1 id="四、写在后面"><a href="#四、写在后面" class="headerlink" title="四、写在后面"></a>四、写在后面</h1><p>通过上面操作就完成了一个简单的无缝上下滚动的进度条动画效果，并且没有通过脚本控制。还有一个容易忘记的点是，在打开anim文件时，一定要点击挂在该动画的对象上，不然是无法预览动画。</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
+    
+    
+    <summary type="html">如何在Unity3D中实现无缝滚动动画？</summary>
+    
+    
+    
+    <category term="游戏开发" scheme="https://www.zerofc.cn/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Unity3D" scheme="https://www.zerofc.cn/tags/Unity3D/"/>
+    
+  </entry>
   
   <entry>
     <title>如何在Unity3D中实现圆角效果？</title>
@@ -412,27 +433,6 @@
     
     
     <category term="变现" scheme="https://www.zerofc.cn/tags/%E5%8F%98%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>就升级个版本，错误日志多了22个G，你敢想！</title>
-    <link href="https://www.zerofc.cn/2025/01/19/%E5%B0%B1%E5%8D%87%E7%BA%A7%E4%B8%AA%E7%89%88%E6%9C%AC%EF%BC%8C%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E5%A4%9A%E4%BA%8622%E4%B8%AAG%EF%BC%8C%E4%BD%A0%E6%95%A2%E6%83%B3%EF%BC%81/"/>
-    <id>https://www.zerofc.cn/2025/01/19/%E5%B0%B1%E5%8D%87%E7%BA%A7%E4%B8%AA%E7%89%88%E6%9C%AC%EF%BC%8C%E9%94%99%E8%AF%AF%E6%97%A5%E5%BF%97%E5%A4%9A%E4%BA%8622%E4%B8%AAG%EF%BC%8C%E4%BD%A0%E6%95%A2%E6%83%B3%EF%BC%81/</id>
-    <published>2025-01-19T06:13:50.000Z</published>
-    <updated>2025-04-23T03:42:33.387Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天抽空给朋友跑了个项目(改东西)，系统源码要求PHP8.0以上版本。</p><p>于是，我二话不说就在本地整了个新的，打开请求地址后， 不光报502还一直转圈。<br>虽然我最近都在弄游戏动画没怎么折腾，但至少也是吃饭的东西，我顺手就打开了本地环境的日志目录。</p><p>22个G的错误日志，你敢想，还好是在我本地，要是出现在线上，又得是一场轮番批斗会了。</p><p>然后打开windows日志，错误决方法也简单，注释或删掉配置中的这一项就可以了。</p><p>但是问题又来了，我什么也没干，就升级了个版本，看官方默认配置也没有track_errors，那到底是谁干的，我表示很怀疑集成开发环境工具，未完待续~</p><p><img src="https://www.zerofc.cn/img/Spine%E5%8A%A8%E7%94%BB%E6%95%99%E7%A8%8B%EF%BC%9A%E5%89%AA%E8%A3%81%E7%9A%84%E5%BA%94%E7%94%A8/image-20240805201033707.png" alt="image-20250408165643830"></p>]]></content>
-    
-    
-    <summary type="html">就升级个版本，错误日志多了22个G，你敢想！</summary>
-    
-    
-    
-    <category term="思维思考" scheme="https://www.zerofc.cn/categories/%E6%80%9D%E7%BB%B4%E6%80%9D%E8%80%83/"/>
-    
-    
-    <category term="生活" scheme="https://www.zerofc.cn/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
