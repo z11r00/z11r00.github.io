@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java语言入门：SSM项目搭建 | ZERO开发</title><meta name="author" content="北桥苏"><meta name="copyright" content="北桥苏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java语言入门：SSM项目搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java语言入门：SSM项目搭建">
+<meta property="og:url" content="https://www.zerofc.cn/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="ZERO开发">
+<meta property="og:description" content="Java语言入门：SSM项目搭建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zerofc.cn/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg">
+<meta property="article:published_time" content="2025-06-28T08:13:50.000Z">
+<meta property="article:modified_time" content="2026-02-25T06:38:31.553Z">
+<meta property="article:author" content="北桥苏">
+<meta property="article:tag" content="Java语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zerofc.cn/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Java语言入门：SSM项目搭建",
+  "url": "https://www.zerofc.cn/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/",
+  "image": "https://www.zerofc.cn/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg",
+  "datePublished": "2025-06-28T08:13:50.000Z",
+  "dateModified": "2026-02-25T06:38:31.553Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "北桥苏",
+      "url": "https://www.zerofc.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.zerofc.cn/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7427096263e5395246ffa2aa60b9664b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java语言入门：SSM项目搭建',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="ZERO开发" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">ZERO开发</span></a><a class="nav-page-title" href="/"><span class="site-name">Java语言入门：SSM项目搭建</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Java语言入门：SSM项目搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-28T08:13:50.000Z" title="发表于 2025-06-28 16:13:50">2025-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-25T06:38:31.553Z" title="更新于 2026-02-25 14:38:31">2026-02-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>SSM是一个Java EE框架，也是一个Java企业级开发解决方案，它集成了Spring、Spring MVC和MyBatis三个核心框架。</p>
+<p>下面我主要在IDEA中，怎么配置Maven，Tomcat，修改设置运行一套现有的SSM源代码。</p>
+<h2 id="二、Maven配置"><a href="#二、Maven配置" class="headerlink" title="二、Maven配置"></a>二、Maven配置</h2><p>这里的配置，是将前面单独安装和设置好了的Maven放入到IDEA中，让其在编辑器里构建项目时不会走默认的设置。</p>
+<p>就比如之前将Jar包更换了默认下载位置，如果不在IDEA中指定还会下载到系统盘中，甚至还会又下载一个新的Maven。</p>
+<h4 id="1-导入项目"><a href="#1-导入项目" class="headerlink" title="1.导入项目"></a>1.导入项目</h4><p>因为我是已经把源码下载到了本地，所以直接点击Open，然后找到项目地址，点击OK就导入进来了。</p>
+<h4 id="2-IDEA设置"><a href="#2-IDEA设置" class="headerlink" title="2.IDEA设置"></a>2.IDEA设置</h4><p>找到File-&gt;Settins-&gt;Build,Execution,Deployment-&gt;Build Tools-&gt;Maven，打开后，主要对Maven Home Directory、User Settins file、Local repository这三个进行修改。</p>
+<p>第一个指定maven安装位置的bin目录，第二个就是自己maven的配置文件，第三个是指定jar的下载位置。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104111346970.png" alt="image-20251104111346970"></p>
+<h4 id="3-验证设置结果"><a href="#3-验证设置结果" class="headerlink" title="3.验证设置结果"></a>3.验证设置结果</h4><p>设置完毕后，找到IDEA的Terminal，输入mvn -version，查看版本号是否和之前安装的一致就可以了。</p>
+<h4 id="4-下载依赖"><a href="#4-下载依赖" class="headerlink" title="4.下载依赖"></a>4.下载依赖</h4><p>找到IDEA的最右侧，有一个折叠的Database、Maven、Ant栏目，点击Maven就会展开，再点击一个循环的图标，就会对项目的pom.xml文件里需要的依赖jar全部下载到本地仓库。</p>
+<p>然后可以看项目的External Libraries和Maven栏目下的Dependencies，是否有加载到依赖，也可以进入本地依赖库查看是否多了那些jar包。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104112808569.png" alt="image-20251104112808569"></p>
+<h2 id="三、Tomcat配置"><a href="#三、Tomcat配置" class="headerlink" title="三、Tomcat配置"></a>三、Tomcat配置</h2><h4 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址"></a>1.下载地址</h4><p>浏览器t直接搜索Tomcat官方网站，但需要注意一下版本，也就是jdk的版本和tomcat的版本是有对应关系的。</p>
+<h4 id="2-jdk和Tomcat版本关系"><a href="#2-jdk和Tomcat版本关系" class="headerlink" title="2.jdk和Tomcat版本关系"></a>2.jdk和Tomcat版本关系</h4><table>
+<thead>
+<tr>
+<th>Tomcat 版本</th>
+<th>支持的 JDK 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tomcat 10</td>
+<td>JDK 11 及以上</td>
+</tr>
+<tr>
+<td>Tomcat 9</td>
+<td>JDK 8 及以上</td>
+</tr>
+<tr>
+<td>Tomcat 8.5</td>
+<td>JDK 7 及以上</td>
+</tr>
+<tr>
+<td>Tomcat 8</td>
+<td>JDK 7 及以上</td>
+</tr>
+<tr>
+<td>Tomcat 7</td>
+<td>JDK 6 及以上</td>
+</tr>
+<tr>
+<td>Tomcat 6</td>
+<td>JDK 5 及以上</td>
+</tr>
+</tbody></table>
+<h4 id="3-Tomcat安装"><a href="#3-Tomcat安装" class="headerlink" title="3.Tomcat安装"></a>3.Tomcat安装</h4><p>下载后点击安装，然后找到安装后的文件夹，复制其绝对路径，打开电脑的环境变量，添加一个变量名CATALINA_HOME，值为tomcat的路径。</p>
+<p>然后找到path，新增一个，将 %CATALINA_HOME%\bin 复制在里面。</p>
+<h4 id="4-启动测试"><a href="#4-启动测试" class="headerlink" title="4.启动测试"></a>4.启动测试</h4><p>找到tomcat的bin目录下的startup.bat，点击启动，然后再在浏览器输入localhost:8080访问，出现tomcat的LOGO表示成功安装。</p>
+<h4 id="5-IDEA配置Tomcat"><a href="#5-IDEA配置Tomcat" class="headerlink" title="5.IDEA配置Tomcat"></a>5.IDEA配置Tomcat</h4><p>找到IDEA上面有一个锤子图标的右边，有个下拉，点击Edit Configurations，进入后点击+号，添加一个Tomcat Server。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104114839858.png" alt="image-20251104114839858"></p>
+<p>点击Tomcat 7详情进行编辑，找到Application server，选择Tomcat的安装位置，下面的默认浏览器启动，端口号设置，地址等等就看自己了。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104115137565.png" alt="image-20251104115137565"></p>
+<h2 id="四、项目运行"><a href="#四、项目运行" class="headerlink" title="四、项目运行"></a>四、项目运行</h2><p>依赖包已经下载好了，tomcat也配置了，接下来就是运行项目了。</p>
+<h4 id="1-修改配置"><a href="#1-修改配置" class="headerlink" title="1.修改配置"></a>1.修改配置</h4><p>数据库导入还原就跳过了，在项目中主要是修改数据库的连接配置，找到src-&gt;main下的resources中jdbc.properties，对参数进行修改即可。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104115704418.png" alt="image-20251104115704418"></p>
+<h4 id="2-项目编译"><a href="#2-项目编译" class="headerlink" title="2.项目编译"></a>2.项目编译</h4><p>在IDEA中，找到那个锤子图标，然后点击Build Project，也可以在命令窗口输入，mvn clean，然后mvn compile，这样就会把源码编译成class了。</p>
+<p>编译成功后在项目根目录会出现一个target，里面就是编译后的class文件了。</p>
+<h4 id="3-项目运行"><a href="#3-项目运行" class="headerlink" title="3.项目运行"></a>3.项目运行</h4><p>项目运行，点击锤子图标的右边的一排图标，其中有一个三角形播放状的图标，点击后就可以在IDEA中通过Tomcat运行了。</p>
+<h4 id="4-访问项目地址"><a href="#4-访问项目地址" class="headerlink" title="4.访问项目地址"></a>4.访问项目地址</h4><p>有些项目入口文件没有页面指向，这时我们可以找到SpringMVC的配置文件，在resources的spring-web.xml中，可以看到相关开放的访问地址。</p>
+<p>第二个可以在controller文件中，找到@RequestMapping(“&#x2F;backend”)，控制器外层的是控制器名，里面的方法是方法名，然后在URL里输入localhost:8080&#x2F;控制器名&#x2F;方法名，就可以进入指定地址了。</p>
+<p><img src="/img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/image-20251104131410388.png" alt="image-20251104131410388"></p>
+<h2 id="五、写在后面"><a href="#五、写在后面" class="headerlink" title="五、写在后面"></a>五、写在后面</h2><p>除了SSM框架外，还有更早期的SSH（Spring+Struts2+Hibernate），以及现在非常流行的SpringBoot，后面我也会再更新~</p>
+<p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn">北桥苏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">https://www.zerofc.cn/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.zerofc.cn" target="_blank">ZERO开发</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java%E8%AF%AD%E8%A8%80/">Java语言</a></div><div class="post-share"><div class="social-share" data-image="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>打赏一下~</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/qrcode/wechat_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/wechat_trade.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/qrcode/alipay_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/alipay_trade.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SpringBoot项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Java语言入门：SpringBoot项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言上次在本地简单部署了一个SSM框架的项目，由于非常繁琐的配置，我这次就试一下现在市面上非常火的SpringBoot。该框架基于Spring框架，由于在很多配置上采用了默认方式，所以在java应用程序构建上非常快速敏捷。 并且它还内嵌了tomcat、Jetty等服务器，使得它能作为一个独立的Jar文件运行，在生产环境上只需要用Nginx用反向代理指向该程序进度。 二、项目配置通过前文关于maven的介绍，这里就跳过了，只按运行流程运行和部署项目。 1.导入项目通过Open导入项目后，IDEA会立刻下载依赖，这时候你也可以去修改pom.xml然后再在Maven中，点击刷新按钮重新下载。 还有一个要注意的是可以给项目指定JDK版本，点击File-&gt;Project Structure-&gt;Project Settings-&gt;Project，找到Project SDK，然后可以根据框架版本切换JDK版本。  2.Artifacts设置还是上面的Project Structure中，Artifacts中添加一个Web Application: Archive，主要用于...</div></div></div></a><a class="pagination-related" href="/2025/06/28/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ABlender%E5%BB%BA%E6%A8%A1%E5%8A%A9%E6%89%8B/" title="AI应用开发（二）：Blender建模助手"><img class="cover" src="/./img/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ABlender%E5%BB%BA%E6%A8%A1%E5%8A%A9%E6%89%8B/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI应用开发（二）：Blender建模助手</div></div><div class="info-2"><div class="info-item-1">一、前言上次简单介绍了一下 MCP，以及如何在 TRAR 中通过 MCP 实现一些 AI 功能，同时我也说过，以后的那些大型工具软件一定会加上自然语言驱动创作模块。 比如各种 Adobe、Autodask 等等系列软件，但是今天我要讲的一个开源轻量的 3D 建模软件 ——Blender，关于实现一个智能体，完成通过自然语言来控制 Blender 建模、贴图等基本操作。  二、环境清单TRAE 0.5.7 Blender 4.0 Blender MCP Python 3.10  三、BlenderMCP 介绍要想用自然对话的方式在 Blender 中建模，就不得不提到 BlenderMCP 了，全称为 Blender Model Context Protocol，是一个旨在将 Blender 与 AI 模型无缝集成的工具。 它通过模型上下文协议（MCP）实现 Blender 与 AI 之间的双向通信，让用户能够利用自然语言指令来控制 Blender，从而极大地简化了 3D 建模和场景操作的流程，它主要由两个部分组成：Blender 插件和 MCP 服务器。  Blender 插件（...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/05/29/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSH%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SSH项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSH%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-29</div><div class="info-item-2">Java语言入门：SSH项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言在 Java 企业级开发中，SSH 通常指的是 Struts2 + Spring + Hibernate 的组合。这个组合是一套常用的框架，用于构建 Web 应用程序。 其中Struts2用于处理 Web 请求和响应，实现 MVC（Model-View-Controller）模式；Spring用于实现依赖注入（Dependency Injection）和面向切面编程（Aspect-Oriented Programming）；Hibernate用于实现对象关系映射（Object-Relational Mapping, ORM），简化数据库操作。 早期这三个框架整合需要单独下载jar包的，现在使用Maven的话，只需要在pom中配置好依赖版本，编译的时候就可以自动构建了，下面就以一个简单的maven版SSH项目演示运行一下。 二、项目配置导入这个项目后发现使用了jetty-maven-plugin，pom中也已经添加了struts、spring、hibernate的依赖，点击刷新依赖按钮就等待下载。 1.配置 Struts2在src的项目包下，找到webapp&#x2F;WE...</div></div></div></a><a class="pagination-related" href="/2025/07/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SpringBoot项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-28</div><div class="info-item-2">Java语言入门：SpringBoot项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言上次在本地简单部署了一个SSM框架的项目，由于非常繁琐的配置，我这次就试一下现在市面上非常火的SpringBoot。该框架基于Spring框架，由于在很多配置上采用了默认方式，所以在java应用程序构建上非常快速敏捷。 并且它还内嵌了tomcat、Jetty等服务器，使得它能作为一个独立的Jar文件运行，在生产环境上只需要用Nginx用反向代理指向该程序进度。 二、项目配置通过前文关于maven的介绍，这里就跳过了，只按运行流程运行和部署项目。 1.导入项目通过Open导入项目后，IDEA会立刻下载依赖，这时候你也可以去修改pom.xml然后再在Maven中，点击刷新按钮重新下载。 还有一个要注意的是可以给项目指定JDK版本，点击File-&gt;Project Structure-&gt;Project Settings-&gt;Project，找到Project SDK，然后可以根据框架版本切换JDK版本。  2.Artifacts设置还是上面的Project Structure中，Artifacts中添加一个Web Application: Archive，主要用于...</div></div></div></a><a class="pagination-related" href="/2025/05/25/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="Java语言入门：项目运行"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-25</div><div class="info-item-2">Java语言入门：项目运行</div></div><div class="info-2"><div class="info-item-1">一、前言我有个习惯，学习任何一门编程语言都不喜欢上来就各种重型IDE、项目管理工具。所以，放到Java上，我还是喜欢直接用javac编译，然后直接运行。 二、安装1.安装包下载JDK并安装到本地。 2.操作E:\2setsoft\1dev\jdk1.8.0_77添加到环境变量，改名为JAVA_HOME 3.验证cmd输入javac -version查看版本号，表示成功。 三、项目创建1.创建java单文件比如Hello.java文件。 2.添加打印代码12345678public class HelloWorld &#123;	    public static void main(String[] args) &#123;            System.out.println(&quot;Hello  World! 2025-10-14 13:50&quot;);    &#125;	&#125;  3.编译代码将上面的HelloWorld类编译成class 1javac -encoding UTF-8 HelloWorld.java  运行成功后在当前文件夹下会生成 H...</div></div></div></a><a class="pagination-related" href="/2025/05/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="Java语言入门：项目构建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-28</div><div class="info-item-2">Java语言入门：项目构建</div></div><div class="info-2"><div class="info-item-1">一、前言上次简单记录了一下Java的单个文件的练习例子，从Hello World的打印到变量声明、数据类型、流程控制等简单的示例。 但是项目往往都是由多个文件组合强关联的，所以基于构建器来创建项目就很有必要了，下面我还是新手视角，用Maven创建Java项目做一个详细的入门总结。 二、Maven安装1.下载https://maven.apache.org/download.cgi 2.maven版本指南因为Java版本和maven版本有关系，比如maven4.x以上的版本必须java 17及以上的，所以我罗列一下这些常用的版本对应关系。    maven版本 Java版本    Maven 3.8.6 Java 8以上   Maven 3.5.4 Java 7以上   Maven 3.0.5 Java 1.6或以上   Maven 4.x Java 17或以上   3.安装解压到电脑下的指定位置，然后找到Maven根目录下的conf文件夹下settings.xml，打开编辑，找到mirrors，添加国内的淘宝镜像，这样可以更快速构建项目。 12345678&lt;mirrors&...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">北桥苏</div><div class="author-info-description">公众号：ZERO开发</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" href="https://space.bilibili.com/286666708/"><i class="fas fa-video"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z11r00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=2652364582&amp;Menu=yes" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">微信公众号：ZERO开发，致力于为猿友们提供有价值的内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Maven%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">二、Maven配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.导入项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-IDEA%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.IDEA设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%AA%8C%E8%AF%81%E8%AE%BE%E7%BD%AE%E7%BB%93%E6%9E%9C"><span class="toc-number">2.0.3.</span> <span class="toc-text">3.验证设置结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-number">2.0.4.</span> <span class="toc-text">4.下载依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Tomcat%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、Tomcat配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.下载地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-jdk%E5%92%8CTomcat%E7%89%88%E6%9C%AC%E5%85%B3%E7%B3%BB"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.jdk和Tomcat版本关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Tomcat%E5%AE%89%E8%A3%85"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.Tomcat安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%90%AF%E5%8A%A8%E6%B5%8B%E8%AF%95"><span class="toc-number">3.0.4.</span> <span class="toc-text">4.启动测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-IDEA%E9%85%8D%E7%BD%AETomcat"><span class="toc-number">3.0.5.</span> <span class="toc-text">5.IDEA配置Tomcat</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">四、项目运行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91"><span class="toc-number">4.0.2.</span> <span class="toc-text">2.项目编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C"><span class="toc-number">4.0.3.</span> <span class="toc-text">3.项目运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%AE%BF%E9%97%AE%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.访问项目地址</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-number">5.</span> <span class="toc-text">五、写在后面</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程"><img src="/./img/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的2025年终总结，回归过程"/></a><div class="content"><a class="title" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程">我的2025年终总结，回归过程</a><time datetime="2026-02-15T08:13:50.000Z" title="发表于 2026-02-15 16:13:50">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集"><img src="/./img/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下进程、线程指令合集"/></a><div class="content"><a class="title" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集">Windows下进程、线程指令合集</a><time datetime="2025-11-10T08:13:50.000Z" title="发表于 2025-11-10 16:13:50">2025-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速"><img src="/./img/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Audition入门教程：音频降速"/></a><div class="content"><a class="title" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速">Audition入门教程：音频降速</a><time datetime="2025-08-30T08:13:50.000Z" title="发表于 2025-08-30 16:13:50">2025-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现无缝滚动动画？"/></a><div class="content"><a class="title" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？">如何在Unity3D中实现无缝滚动动画？</a><time datetime="2025-08-29T08:13:50.000Z" title="发表于 2025-08-29 16:13:50">2025-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现圆角效果？"/></a><div class="content"><a class="title" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？">如何在Unity3D中实现圆角效果？</a><time datetime="2025-08-28T08:13:50.000Z" title="发表于 2025-08-28 16:13:50">2025-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 北桥苏</span></div><div class="footer_custom_text">Copyright© ZERO开发-独立开发者的日常总结<br/><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备16002525号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23…………1C6fM',
+      clientSecret: '4304…………44433f77352',
+      repo: 'z11r00.github.io',
+      owner: 'z11r00',
+      admin: ['z11r00'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || '4683e869b223d8516d6a97b1ce2497ac'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !true) {
+    if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

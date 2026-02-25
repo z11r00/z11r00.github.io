@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZERO开发 - 一个探索副业的独立开发人博客</title><meta name="author" content="北桥苏"><meta name="copyright" content="北桥苏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="公众号：ZERO开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZERO开发">
+<meta property="og:url" content="https://www.zerofc.cn/page/2/index.html">
+<meta property="og:site_name" content="ZERO开发">
+<meta property="og:description" content="公众号：ZERO开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zerofc.cn/img/avatar.png">
+<meta property="article:author" content="北桥苏">
+<meta property="article:tag" content="技术博客、独立开发者、PHP开发、Pthon开发、人工智能、物联网、游戏开发、程序员副业、代码、副业">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zerofc.cn/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.zerofc.cn/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7427096263e5395246ffa2aa60b9664b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZERO开发',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="ZERO开发" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">ZERO开发</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">ZERO开发</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/05/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="Java语言入门：项目构建"><img class="post-bg" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java语言入门：项目构建"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="Java语言入门：项目构建">Java语言入门：项目构建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-28T08:13:50.000Z" title="发表于 2025-05-28 16:13:50">2025-05-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言上次简单记录了一下Java的单个文件的练习例子，从Hello World的打印到变量声明、数据类型、流程控制等简单的示例。 但是项目往往都是由多个文件组合强关联的，所以基于构建器来创建项目就很有必要了，下面我还是新手视角，用Maven创建Java项目做一个详细的入门总结。 二、Maven安装1.下载https://maven.apache.org/download.cgi 2.maven版本指南因为Java版本和maven版本有关系，比如maven4.x以上的版本必须java 17及以上的，所以我罗列一下这些常用的版本对应关系。    maven版本 Java版本    Maven 3.8.6 Java 8以上   Maven 3.5.4 Java 7以上   Maven 3.0.5 Java 1.6或以上   Maven 4.x Java 17或以上   3.安装解压到电脑下的指定位置，然后找到Maven根目录下的conf文件夹下settings.xml，打开编辑，找到mirrors，添加国内的淘宝镜像，这样可以更快速构建项目。 12345678&lt;mirrors&...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/05/26/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9%E5%99%A8/" title="C语言入门：内存修改器"><img class="post-bg" src="/./img/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9%E5%99%A8/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言入门：内存修改器"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/26/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E5%86%85%E5%AD%98%E4%BF%AE%E6%94%B9%E5%99%A8/" title="C语言入门：内存修改器">C语言入门：内存修改器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-26T08:13:50.000Z" title="发表于 2025-05-26 16:13:50">2025-05-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言在我们平时玩单机游戏卡关时，常常会在社区或群里找各种修改器或开挂软件。用来给血条蓝条加量，或者修改技能或武器，而这些工具其实都是通过修改游戏运行时的内存实现的。 所以，既为了学习C语言，也为了玩一下CE修改器，就本地用visual studio跑一个内存修改的程序。以java常驻内存为例，然后用CE扫描该java进程中指定值的内存地址，最后运行C程序修改内存的值。 二、开始操作1.Java代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950public class MemoryOpera &#123;		    public static String playerName = &quot;InitialName&quot;;		// D5AF8E9C   -- D5AF8ECC  D5AF8F14	public static int playerHealth = 3598797;		public static void main(Stri...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/05/25/AI%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ATRAE%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8C%87%E5%8D%97/" title="AI编程（一）：TRAE提示词指南"><img class="post-bg" src="/./img/AI%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ATRAE%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8C%87%E5%8D%97/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI编程（一）：TRAE提示词指南"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/25/AI%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ATRAE%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8C%87%E5%8D%97/" title="AI编程（一）：TRAE提示词指南">AI编程（一）：TRAE提示词指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-25T08:13:50.000Z" title="发表于 2025-05-25 16:13:50">2025-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言TRAE是字节跳动推出的一款AI编程的得力助手，他可以作为插件安装在VSCode中，也可以作为编辑器独立使用。 分国内和国际版，国内版本可以选择豆包、DeepSeek等模型作为智能对话引擎，还能对接MCP Server等功能。 编程上可以直接通过自然语言对话，然后编辑器分解成自动化任务，自动执行，还是非常方便，我也是刚玩这个IDE，顺便整理了几个提示词，仅供参考。 二、写 MCP Server1234567891011121314我想写一个Go语言的计算器MCP Server，具体需求如下：使用场景：能配置在Trae编辑器的本地MCP Servers中已有环境：1. Go 1.23.32. Trae CN 0.5.7技术要求：1. 使用mcp-go库，基于SSE模式2. 该MCP Server中要添加工具、资源、提示词3. 本地开启的端口是8090请提供完整的代码实现，并可能配置到Trae中，不能让他启动时报错。  三、写豆瓣电影爬虫1234567891011121314151617181920212223242526272829303132333435363738394...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/05/25/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" title="C语言入门：环境安装"><img class="post-bg" src="/./img/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C语言入门：环境安装"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/25/C%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" title="C语言入门：环境安装">C语言入门：环境安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-25T08:13:50.000Z" title="发表于 2025-05-25 16:13:50">2025-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言最近下了一个开源的游戏模拟器源码，准备想要修改的，但发现是用C++写的，奈何我之前没学过C，没得办法，就从零开始系统学习一下，于是就从环境搭建开始吧。 在windows下，有几种环境配置的方法，其中我觉得比较方便的是VSCode+MinGW方式，一个是编辑器中的扩展，一个是编译器。 二、安装1.MinGW下载1https://sourceforge.net/projects/mingw-w64/  2.安装选择一个版本，我这里是8.1解压后放到指定位置，将文件夹bin放到系统环境变量path中。 3.验证cmd输入g++ –version查看版本号，其中gcc常用于编译C语言、g++编译C++。 4.编译指令1gcc main.c -o main  通过将main.c文件编译成main.exe，本地可以直接在命令总运行，可以查看程序的打印结果。 1./main.exe    三、VSCode配置1.安装C&#x2F;C++扩展打开VSCode，点击左侧活动栏的扩展图标（四个方块组成的图标），再搜索 “C&#x2F;C++”，找到由Microsoft提供的 “C&#x2F;...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/05/25/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="Java语言入门：项目运行"><img class="post-bg" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java语言入门：项目运行"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/25/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="Java语言入门：项目运行">Java语言入门：项目运行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-25T08:13:50.000Z" title="发表于 2025-05-25 16:13:50">2025-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言我有个习惯，学习任何一门编程语言都不喜欢上来就各种重型IDE、项目管理工具。所以，放到Java上，我还是喜欢直接用javac编译，然后直接运行。 二、安装1.安装包下载JDK并安装到本地。 2.操作E:\2setsoft\1dev\jdk1.8.0_77添加到环境变量，改名为JAVA_HOME 3.验证cmd输入javac -version查看版本号，表示成功。 三、项目创建1.创建java单文件比如Hello.java文件。 2.添加打印代码12345678public class HelloWorld &#123;	    public static void main(String[] args) &#123;            System.out.println(&quot;Hello  World! 2025-10-14 13:50&quot;);    &#125;	&#125;  3.编译代码将上面的HelloWorld类编译成class 1javac -encoding UTF-8 HelloWorld.java  运行成功后在当前文件夹下会生成 H...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/05/08/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C/" title="Blender入门教程（四）：动画制作"><img class="post-bg" src="/./img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender入门教程（四）：动画制作"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/08/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C/" title="Blender入门教程（四）：动画制作">Blender入门教程（四）：动画制作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-08T02:13:50.000Z" title="发表于 2025-05-08 10:13:50">2025-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">一、前言在从一个模型到，完成贴图，完成蒙皮（骨骼绑定）后，已经算是一阶段的任务完成了，因为这样既可以拿去做Mod，也可以直接导入动作源完成动画。但是对于独立游戏，为了差异化，有些动作还是要自己制作的，所以就有了下面的这个3D模型的动画制作过程，最后也会演示一下如何导入CocosCreator等游戏引擎中。 二、动画制作1.打开时间线记得是在姿势模式下，然后在Blender底部把 “时间线” 拉高一点，折叠的 “汇总” 也点击展开来。  2.开始K帧点亮 “自动插帧” 按钮，将关键帧放到0帧位置，开始对某个骨骼进行变换，旋转，移动等，然后再移动到指定关键帧位置再变换，播放一下就可以看到动画了。  三、多组动画在游戏引擎中导入模型时，一个模型往往会制作多组动画，比如待机、攻击、死亡、大招等不同的动作，开发只需要在开发时添加控制器，不同的时候播放对应的动画即可。 1.动画摄影表从 “时间线” 切换到 “动画摄影表”，然后再选择 “动作编辑器”，点击 “新建动作”，然后还是和前面一样，在指定帧数位置做变换。  2.切换动作在编辑了多组动作后，大纲里只会显示一个动作，要想查看需要切换，为了...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/05/07/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%AA%A8%E9%AA%BC%E7%BB%91%E5%AE%9A/" title="Blender入门教程（三）：骨骼绑定"><img class="post-bg" src="/./img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%AA%A8%E9%AA%BC%E7%BB%91%E5%AE%9A/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender入门教程（三）：骨骼绑定"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/07/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%AA%A8%E9%AA%BC%E7%BB%91%E5%AE%9A/" title="Blender入门教程（三）：骨骼绑定">Blender入门教程（三）：骨骼绑定</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-07T02:13:50.000Z" title="发表于 2025-05-07 10:13:50">2025-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">一、前言不知道大家有没有玩过一些单机游戏的Mod，比如《侠盗猎车》里主角变成奥特曼，各种新能源汽车乱入等等。这些都是别人对原有模型就行修改换皮，并重新绑定骨骼完成的，所以如果会了骨骼绑定后，你也就可以自己制作一些模型到单机游戏里，当然还要一些解包封包的技巧，这个有时间聊，那下面开始Blender的骨骼绑定实操了。 二、模型准备1.创建模型我这里以一个机械臂为例，先添加一个立方体变形成长方体，然后添加一个圆柱体，添加时设置顶点为8。  2.快速复制为了让骨骼绑定的效果更明显，我们要做一个两个节点的机械波，可以对前面的部分进行快速复制（Shift+D）到指定位置，然后按快捷键 ~ 进行视角切换，用来对齐前面的组合。  三、骨骼设置1.添加骨骼点击添加-&gt;骨架-&gt;单段骨骼，一开始他会被模型挡住，这时候找到属性的 “物体” -&gt;视图显示，勾选 “在前面”，还可以把名称显示出来。  2.骨骼挤出点击骨骼，进入 “编辑模式”，再点击骨骼头部的小圆点，工具栏选择 “挤出” 或按快捷键 “E”，然后朝着需要的方向拖动就能在上一个骨骼上创建一个子骨骼。  3.断开骨骼链接我这里要...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/" title="Blender入门教程（二）：纹理绘制"><img class="post-bg" src="/./img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender入门教程（二）：纹理绘制"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/" title="Blender入门教程（二）：纹理绘制">Blender入门教程（二）：纹理绘制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-06T05:13:50.000Z" title="发表于 2025-05-06 13:13:50">2025-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">一、前言通过上一篇文章的简单介绍，我们就可以独立完成模型的创建，但还只是一些灰溜溜的轮廓，少了鲜艳的表皮。所以，这篇文章就开始介绍如何制作皮肤，就是给模型着色，下面就用一个立方体做示例了。 二、UV编辑1.标记缝合边选中物体，进入编辑模式后，选择 “边选择模式”，点击物体的一个边，按 “shift” 选中了多个边。怎么选择看你自己对物体剖开的边，UV编辑就是相当于对一个立方体的空包装盒展开平铺。 选择了多个边后，右键选择 “标记缝合边”，此时的这几条边会加粗显示，代表成功标记，然后打开导航栏的 “UV编辑”。  2.UV展开进入UV编辑后，会有两个窗口，一般左边是展开的样子，右边是模型的样子。但是刚开始左边是没有UV的，这时候我们在右边的模型的全选，可以直接快捷键 “A”，也可以点击 “选择”-&gt; “全部”，然后左边就可以看到展开后的样子了。  三、着色编辑1.进入着色器编辑进入着色器编辑有两种方式，一种是回到导航栏的 “布局”，在下面部分，时间轴点击 “编辑器类型”（回放的左边），然后选择 “着色器编辑器”。另一个就直接点击导航栏的 “着色”。  2.添加纹理进入着色编辑...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/" title="Blender入门教程（一）：模型创建"><img class="post-bg" src="/./img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blender入门教程（一）：模型创建"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/" title="Blender入门教程（一）：模型创建">Blender入门教程（一）：模型创建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-05-06T03:13:50.000Z" title="发表于 2025-05-06 11:13:50">2025-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">一、前言大家都知道，现在AIGC领域日新月异，今天AI大模型能生成粗糙的3D模型，明天就能做成商业级的3D模型，但是如果想要一些细节上也有的，还是需要自己手动对模型的布线进行调整，然后再蒙皮等等。 所以，AI大模型强大的当下，如果我们是独立开发者或建模爱好者，还是有必要再系统性学习一下基础的建模流程。因为这个世界每当有新技术出现，且能大幅提升生产力的同时，还会继续保有手工的余地的。 再回到主题，我这个Blender入门教程，其实并不很系统，都是我零零散散实践后总结的。一是给自己做的建模备忘录笔记，二是给同样是作为开发者（非专业建模）的同学，用来快速入门作参考。因为我们职业类似，视角应该也差不多，直接看专业的教程可能比较晦涩，我的虽然粗糙但是浅显易懂呀。 二、操作1.新建项目打开Blender软件，点击常规。  2.添加网格进入窗口后，默认有三个物体，分别是：摄像头、灯光、立方体网格，第一次玩的话，可以先不管这些，直接添加一个新的网格，点击 “添加-&gt;网格-&gt;立方体”。  3.编辑模式在对网格编辑前，可以先了解一下物体的几个交互模式： 物体模式、编辑模式、雕刻模式、顶点...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/04/28/DotNet%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="DotNet入门：项目运行"><img class="post-bg" src="/./img/DotNet%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DotNet入门：项目运行"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/04/28/DotNet%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="DotNet入门：项目运行">DotNet入门：项目运行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-04-28T06:13:50.000Z" title="发表于 2025-04-28 14:13:50">2025-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="content">一、前言.Net是一个集合了丰富的类库和工具的开发平台，由于他几大主要的组件，使他支持C#、VB、F#等多种编程语言，同时能开发Web应用、桌面应用、控制台应用、移动应用、游戏开发、嵌入式物联网应用、云和微服务等多种类型的应用程序。 之前只是记录了.Net的环境的搭建，这次将通过一个简单的控制台应用，介绍一下.Net项目的创建，其中包括Visual Studio工具配置、依赖安装、项目创建、项目运行等。 二、创建项目点击 文件-&gt;新建-&gt;项目，在弹出的窗口中，搜索模板：“控制台应用” 或者 ”Console App“。然后选择目标框架：.Net Core 或 .Net Framework （注.高版本如.Net 6已经部分整合了.Net Core和.Net Framework），最后输入项目名，保存。  三、依赖安装由于我的项目是一个别人写的游戏后台服务，里面有MySql.Data的依赖，所以在运行代码前需要先安装。这里有个小Tips，就是对依赖安装位置的修改，如果不修改，以后下载的都在C盘了。 1.修改依赖位置打开visual studio，工具-&gt;NuGet...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">北桥苏</div><div class="author-info-description">公众号：ZERO开发</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" href="https://space.bilibili.com/286666708/"><i class="fas fa-video"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z11r00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=2652364582&amp;Menu=yes" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">微信公众号：ZERO开发，致力于为猿友们提供有价值的内容</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程"><img src="/./img/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的2025年终总结，回归过程"/></a><div class="content"><a class="title" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程">我的2025年终总结，回归过程</a><time datetime="2026-02-15T08:13:50.000Z" title="发表于 2026-02-15 16:13:50">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集"><img src="/./img/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下进程、线程指令合集"/></a><div class="content"><a class="title" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集">Windows下进程、线程指令合集</a><time datetime="2025-11-10T08:13:50.000Z" title="发表于 2025-11-10 16:13:50">2025-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速"><img src="/./img/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Audition入门教程：音频降速"/></a><div class="content"><a class="title" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速">Audition入门教程：音频降速</a><time datetime="2025-08-30T08:13:50.000Z" title="发表于 2025-08-30 16:13:50">2025-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现无缝滚动动画？"/></a><div class="content"><a class="title" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？">如何在Unity3D中实现无缝滚动动画？</a><time datetime="2025-08-29T08:13:50.000Z" title="发表于 2025-08-29 16:13:50">2025-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现圆角效果？"/></a><div class="content"><a class="title" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？">如何在Unity3D中实现圆角效果？</a><time datetime="2025-08-28T08:13:50.000Z" title="发表于 2025-08-28 16:13:50">2025-08-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/51%E8%BD%BB%E5%88%9B/"><span class="card-category-list-name">51轻创</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PHP%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">PHP开发</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">Python开发</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">其他编程</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">前端开发</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%9D%E7%BB%B4%E6%80%9D%E8%80%83/"><span class="card-category-list-name">思维思考</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">AI编程</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/%E7%B4%A0%E6%9D%90%E8%B5%84%E6%96%99/" style="font-size: 1.23em; color: #999ea6">素材资料</a> <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.17em; color: #999c9f">图床服务器</a> <a href="/tags/%E5%8F%98%E7%8E%B0/" style="font-size: 1.1em; color: #999">变现</a> <a href="/tags/PDF%E4%B9%A6%E7%B1%8D/" style="font-size: 1.43em; color: #99a6b9">PDF书籍</a> <a href="/tags/windows%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">windows技巧</a> <a href="/tags/Go%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">Go语言</a> <a href="/tags/Unity3D/" style="font-size: 1.23em; color: #999ea6">Unity3D</a> <a href="/tags/DotNet/" style="font-size: 1.23em; color: #999ea6">DotNet</a> <a href="/tags/Blender/" style="font-size: 1.37em; color: #99a4b2">Blender</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">桌面应用开发</a> <a href="/tags/C%E7%9B%98%E6%B8%85%E7%90%86/" style="font-size: 1.1em; color: #999">C盘清理</a> <a href="/tags/%E8%BD%AF%E8%91%97%E7%94%B3%E8%AF%B7/" style="font-size: 1.1em; color: #999">软著申请</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.17em; color: #999c9f">C语言</a> <a href="/tags/Audition/" style="font-size: 1.1em; color: #999">Audition</a> <a href="/tags/Spine/" style="font-size: 1.3em; color: #99a1ac">Spine</a> <a href="/tags/Cocos/" style="font-size: 1.3em; color: #99a1ac">Cocos</a> <a href="/tags/%E6%94%AF%E4%BB%98%E5%AF%B9%E6%8E%A5/" style="font-size: 1.1em; color: #999">支付对接</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/%E5%BD%B1%E8%A7%86%E5%89%A7%E9%9B%86/" style="font-size: 1.1em; color: #999">影视剧集</a> <a href="/tags/Vercel/" style="font-size: 1.1em; color: #999">Vercel</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.23em; color: #999ea6">计算机视觉</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80/" style="font-size: 1.37em; color: #99a4b2">Java语言</a> <a href="/tags/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.17em; color: #999c9f">AI应用开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.1em; color: #999">生活</a> <a href="/tags/%E9%B8%BF%E8%92%99Next/" style="font-size: 1.23em; color: #999ea6">鸿蒙Next</a> <a href="/tags/%E7%9B%B4%E6%92%AD%E5%BC%B9%E5%B9%95%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 1.1em; color: #999">直播弹幕小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.23em; color: #999ea6">小程序</a> <a href="/tags/nvm/" style="font-size: 1.1em; color: #999">nvm</a> <a href="/tags/%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/" style="font-size: 1.1em; color: #999">音乐下载</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/Hexo/" style="font-size: 1.23em; color: #999ea6">Hexo</a> <a href="/tags/shell/" style="font-size: 1.17em; color: #999c9f">shell</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6/" style="font-size: 1.5em; color: #99a9bf">工具软件</a> <a href="/tags/uniapp/" style="font-size: 1.1em; color: #999">uniapp</a> <a href="/tags/%E7%BC%96%E6%9B%B2%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">编曲相关</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" style="font-size: 1.1em; color: #999">工具合集</a> <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">年终总结</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">84</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-25T12:03:31.505Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 北桥苏</span></div><div class="footer_custom_text">Copyright© ZERO开发-独立开发者的日常总结<br/><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备16002525号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

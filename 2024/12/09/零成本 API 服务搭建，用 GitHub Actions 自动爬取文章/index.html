@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>零成本 API 服务搭建，用 GitHub Actions 自动爬取文章 | ZERO开发</title><meta name="author" content="北桥苏"><meta name="copyright" content="北桥苏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如何用GitHub Actions部署自动化文章资讯爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零成本 API 服务搭建，用 GitHub Actions 自动爬取文章">
+<meta property="og:url" content="https://www.zerofc.cn/2024/12/09/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:site_name" content="ZERO开发">
+<meta property="og:description" content="如何用GitHub Actions部署自动化文章资讯爬虫">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zerofc.cn/img/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/cover.jpg">
+<meta property="article:published_time" content="2024-12-09T08:13:50.000Z">
+<meta property="article:modified_time" content="2026-02-25T06:38:32.113Z">
+<meta property="article:author" content="北桥苏">
+<meta property="article:tag" content="GitHub Actions">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zerofc.cn/img/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/cover.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "零成本 API 服务搭建，用 GitHub Actions 自动爬取文章",
+  "url": "https://www.zerofc.cn/2024/12/09/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/",
+  "image": "https://www.zerofc.cn/img/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/cover.jpg",
+  "datePublished": "2024-12-09T08:13:50.000Z",
+  "dateModified": "2026-02-25T06:38:32.113Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "北桥苏",
+      "url": "https://www.zerofc.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.zerofc.cn/2024/12/09/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7427096263e5395246ffa2aa60b9664b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '零成本 API 服务搭建，用 GitHub Actions 自动爬取文章',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="ZERO开发" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">ZERO开发</span></a><a class="nav-page-title" href="/"><span class="site-name">零成本 API 服务搭建，用 GitHub Actions 自动爬取文章</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">零成本 API 服务搭建，用 GitHub Actions 自动爬取文章</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-09T08:13:50.000Z" title="发表于 2024-12-09 16:13:50">2024-12-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-25T06:38:32.113Z" title="更新于 2026-02-25 14:38:32">2026-02-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3/">运维相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着将成本降到最低，我目前做的应用或小程序都是单机的，也就是不用请求接口，只要一上架就没有任何支出。但是<strong>写死的数据毕竟有限，应用的内容单一无法紧跟时事热点，每次打开一个样，自然就没有留存</strong>。遇到有错字啥还要更新版本，那有没有方法既能丰富应用内容，又不用增加成本呢？</p>
+<p>既要又要，当然也有，找网上提供的免费 API 接上去。但是这种有请求数限制，而且还和自己应用的业务不相关，那就只能自己弄接口了。</p>
+<p>既然可以在 GitHub 上搭静态博客，那整一个静态 API (json 文件)，时不时地更新或提交新的 json 文件上去，在 C 端应用上不也看起来像是动态的了。所以下面就实践一下如何在 GitHub 上搭建 API 服务，以及<strong>如何自动化更新数据（部署爬虫）？</strong></p>
+<p><img src="https://image-static.segmentfault.com/482/078/482078067-591238b9bf37dca1_fix732" alt="图片"></p>
+<h2 id="API-服务搭建"><a href="#API-服务搭建" class="headerlink" title="API 服务搭建"></a>API 服务搭建</h2><p>方法和之前在 GitHub 上搭建 Hexo 类似，就是给仓库开启 GitHub Pages，可以自行绑定域名，也可以用之前主仓设置的域名后面带当前仓库名访问。当前域名要备案过了，然后用访问资源的方式能访问到 json 文件 (xml、csv 等) 就可以了。<br><img src="https://image-static.segmentfault.com/358/371/3583717244-3b39cca3d762137d_fix732" alt="图片"></p>
+<h2 id="定时爬虫部署"><a href="#定时爬虫部署" class="headerlink" title="定时爬虫部署"></a>定时爬虫部署</h2><p>要实现自动化更新数据，那就要定时手动上传和直接爬虫爬取，可以通过 GitHub Actions 工作流的方式实现，下面第一次使用的方式演示如何创建并运行 workflow。</p>
+<h3 id="创建推送-TOKEN"><a href="#创建推送-TOKEN" class="headerlink" title="创建推送 TOKEN"></a>创建推送 TOKEN</h3><p>因为生成了 json 文件需要自动推送到仓库，为了不用输入账号密码并使用 PAT，这个和之前 Hexo 搭建时获取的一样。settings-&gt;developer settings-&gt;github apps-&gt;personal access tokens-&gt;tokens (classic)，然后选择 “Generate new token (classic)”。</p>
+<h3 id="TOKEN-权限设置"><a href="#TOKEN-权限设置" class="headerlink" title="TOKEN 权限设置"></a>TOKEN 权限设置</h3><p>设置名称，有效时间，勾选权限，主要的把 repo、workflow、user、write:discussion 以及 admin 开头的全勾上，如果不想选都选上也可以。最后创建后就会显示 token 值，记得把那个 ghp 开头的字符串复制下来，不然后面就看不到了。这里再说一下 PAT 下的 Fine-grained tokens 和 Tokens (classic) 的区别，上面比 Tokens (classic) 权限控制更精细，安全性更高，而且无法设置不能失效的 Token。<br><img src="https://image-static.segmentfault.com/221/964/2219644713-4289f5ec535a94cd_fix732" alt="图片"></p>
+<h3 id="测试-TOKEN"><a href="#测试-TOKEN" class="headerlink" title="测试 TOKEN"></a>测试 TOKEN</h3><p>是否可用用 git 命令运行，换成自己的 token 和仓库报错了则说明该 TOKEN 无效</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push https:<span class="regexp">//</span>x-access-token:换成你的TOKEN@github.com<span class="regexp">/z11r00/</span>你的仓库.git HEAD</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建工作流"><a href="#创建工作流" class="headerlink" title="创建工作流"></a>创建工作流</h3><p>打开仓库后，点击 Actions，然后点击 New workflow，set up a workflow yourself 后提交。git 拉取后会在项目中生成一个.github 文件夹，依次点进去是刚才创建的工作流 yml 文件。<br><img src="https://image-static.segmentfault.com/383/733/3837336944-12e422efa1eb2b35_fix732" alt="图片"></p>
+<p><img src="https://image-static.segmentfault.com/183/528/1835286103-701e10b4d848d679_fix732" alt="图片"></p>
+<h3 id="Yml-配置说明"><a href="#Yml-配置说明" class="headerlink" title="Yml 配置说明"></a>Yml 配置说明</h3><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">name</span>：工作流名称，展示在用于表示工作流。</span><br><span class="line"><span class="literal">on</span>：触发事件，schedule 定时 | <span class="keyword">push</span> 推送 | pull_request pr 请求，定时任务下有一个 cron 的五个 * 分别是分 时 日 月 星期（, 分割字段多值 - 定义范围 / 指定间隔频率）。</span><br><span class="line">workflow_dispatch： 是否允许在 github actions 操作选项卡中手动操作，默认是可以。</span><br><span class="line">jobs：任务执行的定义。</span><br><span class="line">runs-<span class="literal">on</span>： 用于任务执行的运行器，可以说是操作系统，其他的还有 windows 等，具体参考文档，下面会贴出。</span><br><span class="line">steps： 步骤，工作流依次执行的步骤，每个都有一个名字和具体的运行指令，可以使用 actions 包 (github 提供的集成程序，比如用于检出仓库代码的，python 环境的等等)。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://image-static.segmentfault.com/101/238/1012385766-e75fd97b886b950b_fix732" alt="图片"></p>
+<h3 id="爬虫工作流"><a href="#爬虫工作流" class="headerlink" title="爬虫工作流"></a>爬虫工作流</h3><p>以下定义一个每天八点十分（不一定准时），先是用 TOKEN 检出仓库中的所有代码，然后设置 python 环境后安装指定依赖，运行 script 目录下的 ArticleSpider.py 脚本，最后将脚本里生成的 json 文件提交并推送到仓库。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作流名称</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">article_spider</span></span><br><span class="line"><span class="comment"># 事件：schedule 定时 | push 推送 | pull_request pr请求</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="comment"># 分 时 日 月 星期 (*每次都 ,分割字段多值 -定义范围 /指定间隔频率)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&#x27;10 0 * * *&#x27;</span> <span class="comment"># 每日8:10，时间点执行任务，注意时区(UTC, 0+8)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 是否可在github操作选项卡手动运行</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义任务</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="comment"># 任务运行器（切换可参考文档）</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 步骤</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># 使用到的actions包(用于克隆当前仓库的所有代码)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">repository</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">main</span></span><br><span class="line">          <span class="attr">token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PUSH_TOKEN</span> <span class="string">&#125;&#125;</span>  <span class="comment"># 自定义的个人推送TOKEN</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Python</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-python@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">python-version:</span> <span class="string">&#x27;3.x&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          python -m pip install --upgrade pip</span></span><br><span class="line"><span class="string">          pip install requests</span></span><br><span class="line"><span class="string">          pip install lxml</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">execute</span> <span class="string">py</span> <span class="string">script</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">FM_USERNAME:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.USERNAME</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          python script/ArticleSpider.py</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">列出所有文件</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          ls -l</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Commit</span> <span class="string">changes</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          git config --local user.email &quot;2652364582@qq.com&quot;</span></span><br><span class="line"><span class="string">          git config --local user.name &quot;bqs&quot;</span></span><br><span class="line"><span class="string">          git add .</span></span><br><span class="line"><span class="string">          git commit -m &quot;Add changes&quot; || echo &quot;No changes to commit&quot;</span></span><br><span class="line"><span class="string">          git push origin main</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ArticleSpider-py"><a href="#ArticleSpider-py" class="headerlink" title="ArticleSpider.py"></a>ArticleSpider.py</h3><p>脚本因为对方站点是一个前后端分离的项目，页面的列表和详情都是用异步请求的方式。所以这种抓取就比较好办，写一个 while 循环，页码不断累加的请求接口，判断有超过某时间点的文章则跳出循环。在循环中将数据保存到指定的目录下的 json 文件中，当然也可以自己调整数据，如果要分页就按固定条数分文件。<br><img src="https://image-static.segmentfault.com/106/933/1069333098-c1ec78234f429dfa_fix732" alt="图片"></p>
+<p><img src="https://image-static.segmentfault.com/336/648/3366485286-f2994b4068981ace_fix732" alt="图片"></p>
+<p><img src="https://image-static.segmentfault.com/369/226/3692265409-3e901a36d109a6ca_fix732" alt="图片"></p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p>虽然是定时的，但也可以去 GitHub 控制台手动运行。打开 Actions，选择工作流名字进去，最后 Run workflow 就等待执行了。详细也可以看到脚本里打印出的日志，执行完毕再回到仓库查看是否有 json 文件生成。<br><img src="https://image-static.segmentfault.com/103/646/1036463815-5c07338533579be8_fix732" alt="图片"><br><img src="https://image-static.segmentfault.com/408/784/4087841949-c0779a32953a2527_fix732" alt="图片"></p>
+<h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>以上只是演示，如果真要弄自己的 API 还是得对爬取的数据做一下处理，拓展一下是不是还可以用这种方式，实现一个带后台管理的资源 “动态网站”。但是应用也不光只有展示，还有提交部分，所以要想零成本实现将用户数据存储下来就要用到另一些方法了，最后 GitHub Actions 用法也远不止于此……</p>
+<h2 id="安利"><a href="#安利" class="headerlink" title="安利"></a>安利</h2><p>QQ小程序：**<a href="https://m.q.qq.com/a/s/b97b48f72dacd484942124801d7442c5?via=2016_1">实用工具箱</a>**</p>
+<p><img src="https://image-static.segmentfault.com/236/602/236602261-66ac8276ea541_fix732" alt="img"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn">北桥苏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn/2024/12/09/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/">https://www.zerofc.cn/2024/12/09/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.zerofc.cn" target="_blank">ZERO开发</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GitHub-Actions/">GitHub Actions</a></div><div class="post-share"><div class="social-share" data-image="/./img/%E9%9B%B6%E6%88%90%E6%9C%AC%20API%20%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA%EF%BC%8C%E7%94%A8%20GitHub%20Actions%20%E8%87%AA%E5%8A%A8%E7%88%AC%E5%8F%96%E6%96%87%E7%AB%A0/cover.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>打赏一下~</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/qrcode/wechat_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/wechat_trade.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/qrcode/alipay_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/alipay_trade.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/12/10/2024%E5%B9%B4%EF%BC%8C%E4%B8%AA%E4%BA%BA%E7%94%B3%E8%AF%B7%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%BD%AF%E8%91%97%E9%80%9F%E9%80%9A%E6%8C%87%E5%8D%97/" title="2024年，个人申请小游戏软著速通指南"><img class="cover" src="/./img/2024%E5%B9%B4%EF%BC%8C%E4%B8%AA%E4%BA%BA%E7%94%B3%E8%AF%B7%E5%B0%8F%E6%B8%B8%E6%88%8F%E8%BD%AF%E8%91%97%E9%80%9F%E9%80%9A%E6%8C%87%E5%8D%97/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">2024年，个人申请小游戏软著速通指南</div></div><div class="info-2"><div class="info-item-1">前言2024年6月26号，我申请的小游戏软著通过了。由于等待时间太长，所以就总结了一下整个申请过程踩过的坑。帮助未了解或即将申请个人软著的同学绕过下面三点，可以节省至少三分之一的时间（小游戏类目）。 当然，这里也会围绕大家关心的几个问题展开，比如：软著申请的费用、软著申请到底要多久以及整个申请的流程。最后再给大家两份我自己的申请模板，软件源程序文档和软件说明书文档。  费用2024年申请软著不用钱，如果说一分钱不用也说不过去，因为在申请时的签章页要打印签字，所以整个过程的花费就是一张纸的打印钱。要是你找的第三方代办收取高费用，并且说要打印这打印那的就自己弄吧。因为现在关于软著的登记都是采用电子版形式了。之前既要打印源码文档和软件说明书，还要寄过去，然后才能收到纸张版软著。 时间我从申请到通过一共是三个月时间，但是在过程中有三次补正，也就是提交的信息和资料不符和要求。而每次补正再审核大概在8-15天（个人观察），错三次也就要多一个月时间，按正常填写一遍过的话应该两个月以内就能获取。 流程注册与开始申请进入“国家版权保护中心官网”，选择个人身份，填写手机邮箱等信息后注册成功后登陆。然...</div></div></div></a><a class="pagination-related" href="/2024/12/08/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%20APP%20%E5%92%8C%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%90%8E%E5%8F%B0/" title="零成本搭建个人 APP 和小程序后台"><img class="cover" src="/../img/%E9%9B%B6%E6%88%90%E6%9C%AC%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%20APP%20%E5%92%8C%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%90%8E%E5%8F%B0/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">零成本搭建个人 APP 和小程序后台</div></div><div class="info-2"><div class="info-item-1">前言前面也说了，通过 GitHub Pages+GitHub Actions 只是解决了动态数据展示，但是要零成本得完成将用户信息存储下来，并实现数据交互呢？ 我开始是想用云文档，种种原因，我还是希望有个自己能二次修改的后台，于是就选择了 Vercel+Railway 方式。 虽然网上也有很多人介绍这俩平台的玩法，但都是 2024 年以前的文章，有些平台最新的修改，和自己踩到的坑而别人没提到的细节，我还是想记录一下。  坑点 域名已经解析成功了，但是一直无法访问 Vercel 上的页面。 vercel-php 版本和 Vercel 上的 NodeJs 版本冲突，和一些配置问题。 代码提交推送后，Vercel 没有完成自动部署等等。  准备 Vercel：  略过详细介绍，暂且把他理解成云服务器，入门配置免费，需要注册登陆。  Railway： 同样略过详细介绍，暂且把他理解成云数据库，几乎免费，需要注册登陆。  GitHub：  先创建存放程序的仓库，也几乎完全免费，需要注册登陆。 Typecho： 博客程序 ，其他语言的像 Flask 也行，开源免费，下载或自行编写。  Ver...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">北桥苏</div><div class="author-info-description">公众号：ZERO开发</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" href="https://space.bilibili.com/286666708/"><i class="fas fa-video"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z11r00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=2652364582&amp;Menu=yes" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">微信公众号：ZERO开发，致力于为猿友们提供有价值的内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">API 服务搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E7%88%AC%E8%99%AB%E9%83%A8%E7%BD%B2"><span class="toc-number">3.</span> <span class="toc-text">定时爬虫部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8E%A8%E9%80%81-TOKEN"><span class="toc-number">3.1.</span> <span class="toc-text">创建推送 TOKEN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TOKEN-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">TOKEN 权限设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-TOKEN"><span class="toc-number">3.3.</span> <span class="toc-text">测试 TOKEN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">3.4.</span> <span class="toc-text">创建工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Yml-%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"><span class="toc-number">3.5.</span> <span class="toc-text">Yml 配置说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E8%99%AB%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">3.6.</span> <span class="toc-text">爬虫工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ArticleSpider-py"><span class="toc-number">3.7.</span> <span class="toc-text">ArticleSpider.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C"><span class="toc-number">3.8.</span> <span class="toc-text">运行效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%90%8E%E9%9D%A2"><span class="toc-number">4.</span> <span class="toc-text">写在后面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%88%A9"><span class="toc-number">5.</span> <span class="toc-text">安利</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程"><img src="/./img/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的2025年终总结，回归过程"/></a><div class="content"><a class="title" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程">我的2025年终总结，回归过程</a><time datetime="2026-02-15T08:13:50.000Z" title="发表于 2026-02-15 16:13:50">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集"><img src="/./img/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下进程、线程指令合集"/></a><div class="content"><a class="title" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集">Windows下进程、线程指令合集</a><time datetime="2025-11-10T08:13:50.000Z" title="发表于 2025-11-10 16:13:50">2025-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速"><img src="/./img/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Audition入门教程：音频降速"/></a><div class="content"><a class="title" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速">Audition入门教程：音频降速</a><time datetime="2025-08-30T08:13:50.000Z" title="发表于 2025-08-30 16:13:50">2025-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现无缝滚动动画？"/></a><div class="content"><a class="title" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？">如何在Unity3D中实现无缝滚动动画？</a><time datetime="2025-08-29T08:13:50.000Z" title="发表于 2025-08-29 16:13:50">2025-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现圆角效果？"/></a><div class="content"><a class="title" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？">如何在Unity3D中实现圆角效果？</a><time datetime="2025-08-28T08:13:50.000Z" title="发表于 2025-08-28 16:13:50">2025-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 北桥苏</span></div><div class="footer_custom_text">Copyright© ZERO开发-独立开发者的日常总结<br/><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备16002525号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23…………1C6fM',
+      clientSecret: '4304…………44433f77352',
+      repo: 'z11r00.github.io',
+      owner: 'z11r00',
+      admin: ['z11r00'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'cba2561084ee6fef44c438fe8afb9613'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !true) {
+    if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ZERO开发 - 一个探索副业的独立开发人博客</title><meta name="author" content="北桥苏"><meta name="copyright" content="北桥苏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="公众号：ZERO开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZERO开发">
+<meta property="og:url" content="https://www.zerofc.cn/page/6/index.html">
+<meta property="og:site_name" content="ZERO开发">
+<meta property="og:description" content="公众号：ZERO开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zerofc.cn/img/avatar.png">
+<meta property="article:author" content="北桥苏">
+<meta property="article:tag" content="技术博客、独立开发者、PHP开发、Pthon开发、人工智能、物联网、游戏开发、程序员副业、代码、副业">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zerofc.cn/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.zerofc.cn/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7427096263e5395246ffa2aa60b9664b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ZERO开发',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="ZERO开发" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">ZERO开发</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">ZERO开发</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/11/12/QQ%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%86%E6%97%A0%E6%B3%95%E8%A2%AB%E6%90%9C%E7%B4%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="QQ小程序已发布，但无法被搜索的解决方案"><img class="post-bg" src="/./img/QQ%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%86%E6%97%A0%E6%B3%95%E8%A2%AB%E6%90%9C%E7%B4%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QQ小程序已发布，但无法被搜索的解决方案"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/12/QQ%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B7%B2%E5%8F%91%E5%B8%83%EF%BC%8C%E4%BD%86%E6%97%A0%E6%B3%95%E8%A2%AB%E6%90%9C%E7%B4%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="QQ小程序已发布，但无法被搜索的解决方案">QQ小程序已发布，但无法被搜索的解决方案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-12T06:51:50.000Z" title="发表于 2024-11-12 14:51:50">2024-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="content">前言我的QQ小程序在2024年8月就已经审核通过，上架后却一直无法被搜索到。打开后，再在QQ上下拉查看 “最近使用”，发现他出现一下又马上消失。 上线是按正常流程走的，开发、备案、审核，也没有任何违规，后台也没收到说被封或异常的信息。  排查难道是我名字（实用工具箱）问题，当我要去后台修改名字时，提示要重新备案。不过也让我想起之前我搜索的时候，别人也有用这名字，所以根本不是这个原因。 会不会是后台哪里设置了，第一次玩QQ小程序后台，搞不好一开始的时候我乱点了什么。最后找啊找，终于在 “关联设置” 中找到了问题所在。  解决在QQ后台的设置下的 “关联设置” 里 “QQ频道” 有一个 “仅允许在机器人服务中使用”，这一项给出的解释是 “打开后，QQ小程序推荐页将不会展示此小程序”，没错，我勾选了。 尴不尴尬，去掉后什么无法被搜索，什么在最近使用框里马上消失的问题，全部解决。所以我之前刚上架时没有自然流量也是因为这个，那我才放开小程序推荐，官方会不会就给推了啊，这个只能看后面几天的情况才能知道，但现在的我还是急需流量。  找流量为什么着急找流量？因为QQ小程序的流量主开通不同于微信小...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/11/03/PHP%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8E%A5%E6%94%AF%E4%BB%98%E5%AE%9DJSAPI/" title="PHP如何对接支付宝JSAPI"><img class="post-bg" src="/./img/PHP%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8E%A5%E6%94%AF%E4%BB%98%E5%AE%9DJSAPI/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PHP如何对接支付宝JSAPI"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/03/PHP%E5%A6%82%E4%BD%95%E5%AF%B9%E6%8E%A5%E6%94%AF%E4%BB%98%E5%AE%9DJSAPI/" title="PHP如何对接支付宝JSAPI">PHP如何对接支付宝JSAPI</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-11-03T02:13:50.000Z" title="发表于 2024-11-03 10:13:50">2024-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/PHP%E5%BC%80%E5%8F%91/">PHP开发</a></span></div><div class="content">前言虽然对接支付宝支付功能很常见，但是随着项目业务不断调整，有时候支付宝也在迭代。过段时间不看很可能就忘了，比如证书过期了，连密钥生成都不知道怎么弄。所以我就在这里就再总结一下JSAPI的对接步骤和遇到的几个小坑。 报错 服务端请求接口返回 “商户协议状态非正常状态”。 前端调起支付时报6001错误。 最新的JSAPI已经不再支持预支付串。  接口加密方式根据我以往的经验，对接支付宝支付，偶尔改动的地方是返回部分，而容易忘记的是接口加密部分。  密钥方式  用SDK要使用AopClient包，要求有开发者私钥（APP_PRIVATE_KEY）和支付宝公钥（ALIPAY_PUBLIC_KEY），都是在支付宝商户平台操作生成。  证书方式  证书模式用的是AopCertClient包，要求在商户平台下载应用公钥证书、支付宝公钥证书、支付宝根证书。  编码 配置文件  123456789101112131415&lt;?php// 支付宝小程序return [	// 网关地址    &quot;GATEWAY_URL&quot; =&gt; &#x27;https://openapi....</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/10/07/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%83%9F%E8%8A%B1%E6%A8%A1%E6%8B%9F%E5%99%A8/" title="鸿蒙Next实战：烟花模拟器"><img class="post-bg" src="/img/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%83%9F%E8%8A%B1%E6%A8%A1%E6%8B%9F%E5%99%A8/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="鸿蒙Next实战：烟花模拟器"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/07/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%83%9F%E8%8A%B1%E6%A8%A1%E6%8B%9F%E5%99%A8/" title="鸿蒙Next实战：烟花模拟器">鸿蒙Next实战：烟花模拟器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-07T00:00:00.000Z" title="发表于 2024-10-07 08:00:00">2024-10-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="content">前言通过上一篇文章可以看出，要在鸿蒙应用中实现特别炫的特效还是比较复杂。动画固然重要，但如果在赶工期的情况下，大家都会优先业务，那有没有简单快速的方法呢？ 有的，也用像 Android 和 iOS 里 WebView 的方式，h5 的特效现在是应有尽有，把他嵌入鸿蒙 Next 应用里就可以，那如何在鸿蒙 Next 中使用 WebView 来实现电子烟花？ 实现要点 组件拆解 资源引入 页面路由 WebView   开始实践因为前面的木鱼和现在的烟花都是同一个小工具应用，公用组件的拆分、页面跳转和资源的引入全有涉及，所以就连同 WebView 一起总结一下。 组件拆解在 ArkUI 中，UI 显示的内容均为组件，由框架直接提供的称为系统组件，由开发者定义的称为自定义组件。这里我们将所有页面的导航拆分成一个公用组件，并定义为 HdNav.ets。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/10/06/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%94%B5%E5%AD%90%E6%9C%A8%E9%B1%BC/" title="鸿蒙Next实战：电子木鱼"><img class="post-bg" src="/img/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%94%B5%E5%AD%90%E6%9C%A8%E9%B1%BC/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="鸿蒙Next实战：电子木鱼"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/06/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%94%B5%E5%AD%90%E6%9C%A8%E9%B1%BC/" title="鸿蒙Next实战：电子木鱼">鸿蒙Next实战：电子木鱼</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-06T00:00:00.000Z" title="发表于 2024-10-06 08:00:00">2024-10-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="content">前言正所谓：Hello Word 是程序员学任何一门语言的第一个程序实践。这其实也是一个不错的正反馈，那如何让学习鸿蒙 Next 更有成就感呢？下面就演示一下从零开发一个鸿蒙 Next 版的电子木鱼，主打就是一个抽象！  实现要点 页面布局 木鱼点击 木鱼音效 动画特效 自定义弹窗   开始实践页面布局ArkTS 定义了声明式 UI 描述、自定义组件和动态扩展 UI 元素的能力，配合 ArkUI 开发框架中的系统组件及其相关的事件方法、属性方法等共同构成 UI 开发的主体。我们下面要完成的主要是一个木鱼和设置按钮、自动按钮。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364build() &#123;Column() &#123;  HdNav(&#123; title: &#x27;电子木鱼&#x27;, showRightIcon: false, iconColor: $r(&#x27;a...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/10/05/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="鸿蒙Next实战：环境搭建"><img class="post-bg" src="/img/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="鸿蒙Next实战：环境搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/05/%E9%B8%BF%E8%92%99Next%E5%AE%9E%E6%88%98%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="鸿蒙Next实战：环境搭建">鸿蒙Next实战：环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-05T00:00:00.000Z" title="发表于 2024-10-05 08:00:00">2024-10-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></span></div><div class="content">前言作为独立开发者，如果我们错过了传统移动 App，和后起小程序的红利，那万物互联 + AI 的应用开发就得抓住了。 虽然个人上架应用平台难易都差不多，但是鸿蒙生态当前正需要广大开发者参与，一旦上架，相比其他平台，流量扶持力度更大，变现能力也更容易。 所以，我们可以先开发一些应用占个位置，后面再逐渐迭代完善；那么，第一步就先从搭建开发环境开始吧。  鸿蒙 Next 简介鸿蒙 Next，英文 HarmoneyOS Next，又叫纯血版鸿蒙，2023 年 8 月 4 日开发者预览版，2024 年 6 月正式对外公布。鸿蒙 NEXT 采用了全鸿蒙内核，完成了对 Linux 内核的全面替换，并去掉了安卓开放源代码项目（AOSP）等代码，实现了真正的自主可控，他能支持华为及合作厂商的多种智能终端设备，包括手机、平板、智慧屏等等。  运行环境要求针对开发 HarmonyOS 应用及元服务，华为基于 IntelliJ IDEA Community 开源版本打造了一个集成开发环境（IDE）——DevEco Studio，能将开发的应用和服务同时运行在 HarmonyOS 和 OpenHarmon...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/04/%E5%A6%82%E4%BD%95%E7%94%A8CocosCreator%E5%AF%B9%E6%8E%A5%E6%8A%96%E9%9F%B3%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%8D%E8%AE%BF/" title="如何用CocosCreator对接抖音小游戏的侧边栏复访"><img class="post-bg" src="/./img/%E5%A6%82%E4%BD%95%E7%94%A8CocosCreator%E5%AF%B9%E6%8E%A5%E6%8A%96%E9%9F%B3%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%8D%E8%AE%BF/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何用CocosCreator对接抖音小游戏的侧边栏复访"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/04/%E5%A6%82%E4%BD%95%E7%94%A8CocosCreator%E5%AF%B9%E6%8E%A5%E6%8A%96%E9%9F%B3%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%9A%84%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%A4%8D%E8%AE%BF/" title="如何用CocosCreator对接抖音小游戏的侧边栏复访">如何用CocosCreator对接抖音小游戏的侧边栏复访</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-04T08:13:50.000Z" title="发表于 2024-08-04 16:13:50">2024-08-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">前言最近小游戏的软著下来了，用 CocosCreator 做的游戏也完成了 1.0 版本。而当我打包成抖音小游戏进行提交时，还没到初审就给拒了，因为还有一个机审，机器检测到代码中没有接入 “侧边栏复访功能”。这个我还真不知道，那只能去官方看文档了，位置是小游戏开发文档 -&gt; 指南 -&gt; 开放能力 -&gt; 侧边栏能力。  简介侧边栏复访能力是在「2023 年 11 月 24 日」起就开启了「必接审核」，为什么要这样做呢？原来是随着抖音首页侧边栏的日活不断增高，平台也积极引导用户养成从首页侧边栏进入游戏的习惯而做的要求。这样可以大幅提升次留、7 留，反正就是你好我好大家好的局面，接就对了。 文档我也大概看了，大概的流程就是打开游戏后，判断是不是侧边栏进来，是的话就相当老用户给他一些奖励，不是的话给一些引导弹窗，让用户触发打开侧边栏。而文档里的方案示例大部分也都有奖励领取环节，但是我这个目前是单机，奖励肯定是没有的，那怎么办，于是我就做了一些简化。  流程 创建去侧边栏按钮和引导层 对接抖音提供的方法检测和跳转 打包后去抖音开发工具调测  操作创建去侧边栏按钮打开游戏场...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/01/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB13%E6%9C%9F%EF%BC%9A8%E4%B8%AA%E2%80%9C%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7%E2%80%9D%E7%B1%BBAPP/" title="资源分享13期：8个“破解工具”类APP"><img class="post-bg" src="/./img/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB13%E6%9C%9F%EF%BC%9A8%E4%B8%AA%E2%80%9C%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7%E2%80%9D%E7%B1%BBAPP/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="资源分享13期：8个“破解工具”类APP"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/01/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB13%E6%9C%9F%EF%BC%9A8%E4%B8%AA%E2%80%9C%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7%E2%80%9D%E7%B1%BBAPP/" title="资源分享13期：8个“破解工具”类APP">资源分享13期：8个“破解工具”类APP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-01T06:00:01.000Z" title="发表于 2024-08-01 14:00:01">2024-08-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">资源分享</a></span></div><div class="content">破解工具类APP更多的工具软件，可以加我微信：bqs219，(加我备注：资源求助)    文件名 链接 提取码    QQ物理群发器4.0版本.apk https://pan.baidu.com/s/16u8XtMWUoFkKYAH94PUrLA?pwd=v00e    QQ音乐下载器v1.2.9.0清爽版.apk https://pan.baidu.com/s/1g9-EdKBIdE1GHkMLhzby3w?pwd=lcr6    抖音无水印解析.zip https://pan.baidu.com/s/1Efu7Jky3Q2xKgn5cn0AORw?pwd=bxyn    豆芽宝盒v1.2完美破解版.apk https://pan.baidu.com/s/1qdQFHQ3QNVXE2cIVbvpCiw?pwd=hce6    短视频解析无水印下载各大短视频app的视频 (1).zip https://pan.baidu.com/s/1A2SGjJuShiQuL671_4Pa0g?pwd=c2vq    骑士战争：假面骑士 关卡解锁.apk https://pan.baidu.c...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB12%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享12期：5本“思维提升”PDF书籍"><img class="post-bg" src="/./img/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB12%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="资源分享12期：5本“思维提升”PDF书籍"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB12%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E6%80%9D%E7%BB%B4%E6%8F%90%E5%8D%87%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享12期：5本“思维提升”PDF书籍">资源分享12期：5本“思维提升”PDF书籍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-30T06:00:01.000Z" title="发表于 2024-07-30 14:00:01">2024-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">资源分享</a></span></div><div class="content">内含思考艺术、高效学习法更多的PDF书籍，可以加我微信：bqs219，(加我备注：资源求助)    文件名 链接 提取码    01_《人性的博弈：为什么做个好人这么难》阿明·福尔克【文字版_PDF电子书】.pdf https://drive.uc.cn/s/450f1e36ba004    02_[经典思维50法].麦冬.扫描版.pdf https://drive.uc.cn/s/92dde87f4bb74 5pfg   03_《30岁人生开挂7步法》自清【文字版_PDF电子书】.pdf https://drive.uc.cn/s/6d6aa6e7dc964 xrr8   04_《统计操控的真相与谎言》德瑞尔·赫夫【文字版_PDF电子书】.pdf https://drive.uc.cn/s/bfb0442754284 0g38   05_《不被洗脑的100个思维习惯》【日】斋藤孝【文字版_PDF电子书_下载】.pdf https://drive.uc.cn/s/e1580a45a2924    加入我的资源频道持续更新的分享频道，如何想要全部资源，可以加我微信：bqs219 个...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB09%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享09期：5本“产品运营”PDF书籍"><img class="post-bg" src="/./img/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB09%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="资源分享09期：5本“产品运营”PDF书籍"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB09%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享09期：5本“产品运营”PDF书籍">资源分享09期：5本“产品运营”PDF书籍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-30T05:00:01.000Z" title="发表于 2024-07-30 13:00:01">2024-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">资源分享</a></span></div><div class="content">人人都是产品经理更多的PDF书籍，可以加我微信：bqs219，(加我备注：资源求助)    文件名 链接 提取码    12_成瘾：如何设计让人上瘾的产品、品牌和观念-程志良 https://drive.uc.cn/s/f37c8e2f92774 mjp1   13_人人都该懂的互联网思维 https://drive.uc.cn/s/140ca564741d4 ndwg   14_项目管理知识体系指南-第六版 https://drive.uc.cn/s/c3fff09844ea4 3xo7   01_[人人都是产品经理].苏杰.文字完整版.pdf https://drive.uc.cn/s/2b58d43aada44 u9yu   02_《极致产品》周鸿祎.pdf https://drive.uc.cn/s/03f33a56024a4 i371   加入我的资源频道持续更新的分享频道，如何想要全部资源，可以加我微信：bqs219 个人小游戏分享 </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB10%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E5%89%AF%E4%B8%9A%E5%8F%98%E7%8E%B0%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享10期：5本“副业变现”PDF书籍"><img class="post-bg" src="/./img/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB10%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E5%89%AF%E4%B8%9A%E5%8F%98%E7%8E%B0%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="资源分享10期：5本“副业变现”PDF书籍"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/07/30/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB10%E6%9C%9F%EF%BC%9A5%E6%9C%AC%E2%80%9C%E5%89%AF%E4%B8%9A%E5%8F%98%E7%8E%B0%E2%80%9DPDF%E4%B9%A6%E7%B1%8D/" title="资源分享10期：5本“副业变现”PDF书籍">资源分享10期：5本“副业变现”PDF书籍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-30T05:00:01.000Z" title="发表于 2024-07-30 13:00:01">2024-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/">资源分享</a></span></div><div class="content">人人都是产品经理内含商业逻辑、副业变现更多的PDF书籍，可以加我微信：bqs219，(加我备注：资源求助)    文件名 链接 提取码    02_商业的本质 https://drive.uc.cn/s/e3aa59aee2f04    05_《开个小店：个人创业者避坑指南》沈帅波【文字版_PDF电子书】.pdf https://drive.uc.cn/s/f87285a466ae4 gf73   06_《副业赚钱【人人可复制的爆款赚钱课，副业也能月入过万】》Angie【文字版_PDF电子书_下载】.pdf https://drive.uc.cn/s/edfba9513e834 bhd5   07_《副业赚钱之道：从0到1打造多元化收入》安晓辉.pdf https://drive.uc.cn/s/c6f476d97fd84 xwyi   08_《微信互联网平民创业（李笑来2020新书。“微信视频号的红利会比公众号更大，并且是一次属于平民的机会”）》李笑来【文字版_PDF电子书_下载】.pdf https://drive.uc.cn/s/4d8acf5045cb4 bff4   加...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">北桥苏</div><div class="author-info-description">公众号：ZERO开发</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" href="https://space.bilibili.com/286666708/"><i class="fas fa-video"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z11r00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=2652364582&amp;Menu=yes" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">微信公众号：ZERO开发，致力于为猿友们提供有价值的内容</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程"><img src="/./img/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的2025年终总结，回归过程"/></a><div class="content"><a class="title" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程">我的2025年终总结，回归过程</a><time datetime="2026-02-15T08:13:50.000Z" title="发表于 2026-02-15 16:13:50">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集"><img src="/./img/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下进程、线程指令合集"/></a><div class="content"><a class="title" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集">Windows下进程、线程指令合集</a><time datetime="2025-11-10T08:13:50.000Z" title="发表于 2025-11-10 16:13:50">2025-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速"><img src="/./img/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Audition入门教程：音频降速"/></a><div class="content"><a class="title" href="/2025/08/30/Audition%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E9%9F%B3%E9%A2%91%E9%99%8D%E9%80%9F/" title="Audition入门教程：音频降速">Audition入门教程：音频降速</a><time datetime="2025-08-30T08:13:50.000Z" title="发表于 2025-08-30 16:13:50">2025-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现无缝滚动动画？"/></a><div class="content"><a class="title" href="/2025/08/29/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8%E5%8A%A8%E7%94%BB%EF%BC%9F/" title="如何在Unity3D中实现无缝滚动动画？">如何在Unity3D中实现无缝滚动动画？</a><time datetime="2025-08-29T08:13:50.000Z" title="发表于 2025-08-29 16:13:50">2025-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？"><img src="/./img/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何在Unity3D中实现圆角效果？"/></a><div class="content"><a class="title" href="/2025/08/28/%E5%A6%82%E4%BD%95%E5%9C%A8Unity3D%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9C%86%E8%A7%92%E6%95%88%E6%9E%9C%EF%BC%9F/" title="如何在Unity3D中实现圆角效果？">如何在Unity3D中实现圆角效果？</a><time datetime="2025-08-28T08:13:50.000Z" title="发表于 2025-08-28 16:13:50">2025-08-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/51%E8%BD%BB%E5%88%9B/"><span class="card-category-list-name">51轻创</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PHP%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">PHP开发</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">Python开发</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="card-category-list-name">人工智能</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">其他编程</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">前端开发</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%80%9D%E7%BB%B4%E6%80%9D%E8%80%83/"><span class="card-category-list-name">思维思考</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">AI编程</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/%E7%B4%A0%E6%9D%90%E8%B5%84%E6%96%99/" style="font-size: 1.23em; color: #999ea6">素材资料</a> <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.17em; color: #999c9f">图床服务器</a> <a href="/tags/%E5%8F%98%E7%8E%B0/" style="font-size: 1.1em; color: #999">变现</a> <a href="/tags/PDF%E4%B9%A6%E7%B1%8D/" style="font-size: 1.43em; color: #99a6b9">PDF书籍</a> <a href="/tags/windows%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">windows技巧</a> <a href="/tags/Go%E8%AF%AD%E8%A8%80/" style="font-size: 1.1em; color: #999">Go语言</a> <a href="/tags/Unity3D/" style="font-size: 1.23em; color: #999ea6">Unity3D</a> <a href="/tags/DotNet/" style="font-size: 1.23em; color: #999ea6">DotNet</a> <a href="/tags/Blender/" style="font-size: 1.37em; color: #99a4b2">Blender</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">桌面应用开发</a> <a href="/tags/C%E7%9B%98%E6%B8%85%E7%90%86/" style="font-size: 1.1em; color: #999">C盘清理</a> <a href="/tags/%E8%BD%AF%E8%91%97%E7%94%B3%E8%AF%B7/" style="font-size: 1.1em; color: #999">软著申请</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.17em; color: #999c9f">C语言</a> <a href="/tags/Audition/" style="font-size: 1.1em; color: #999">Audition</a> <a href="/tags/Spine/" style="font-size: 1.3em; color: #99a1ac">Spine</a> <a href="/tags/Cocos/" style="font-size: 1.3em; color: #99a1ac">Cocos</a> <a href="/tags/%E6%94%AF%E4%BB%98%E5%AF%B9%E6%8E%A5/" style="font-size: 1.1em; color: #999">支付对接</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/%E5%BD%B1%E8%A7%86%E5%89%A7%E9%9B%86/" style="font-size: 1.1em; color: #999">影视剧集</a> <a href="/tags/Vercel/" style="font-size: 1.1em; color: #999">Vercel</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.23em; color: #999ea6">计算机视觉</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80/" style="font-size: 1.37em; color: #99a4b2">Java语言</a> <a href="/tags/AI%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.17em; color: #999c9f">AI应用开发</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.1em; color: #999">生活</a> <a href="/tags/%E9%B8%BF%E8%92%99Next/" style="font-size: 1.23em; color: #999ea6">鸿蒙Next</a> <a href="/tags/%E7%9B%B4%E6%92%AD%E5%BC%B9%E5%B9%95%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 1.1em; color: #999">直播弹幕小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.23em; color: #999ea6">小程序</a> <a href="/tags/nvm/" style="font-size: 1.1em; color: #999">nvm</a> <a href="/tags/%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/" style="font-size: 1.1em; color: #999">音乐下载</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/Hexo/" style="font-size: 1.23em; color: #999ea6">Hexo</a> <a href="/tags/shell/" style="font-size: 1.17em; color: #999c9f">shell</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E8%BD%AF%E4%BB%B6/" style="font-size: 1.5em; color: #99a9bf">工具软件</a> <a href="/tags/uniapp/" style="font-size: 1.1em; color: #999">uniapp</a> <a href="/tags/%E7%BC%96%E6%9B%B2%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">编曲相关</a> <a href="/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/" style="font-size: 1.1em; color: #999">工具合集</a> <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">年终总结</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/02/">
+            <span class="card-archive-list-date">
+              二月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/11/">
+            <span class="card-archive-list-date">
+              十一月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">3</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/05/">
+            <span class="card-archive-list-date">
+              五月 2025
+            </span>
+            <span class="card-archive-list-count">10</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/04/">
+            <span class="card-archive-list-date">
+              四月 2025
+            </span>
+            <span class="card-archive-list-count">9</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">84</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-25T12:03:31.505Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 北桥苏</span></div><div class="footer_custom_text">Copyright© ZERO开发-独立开发者的日常总结<br/><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备16002525号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
