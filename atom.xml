@@ -6,7 +6,7 @@
   <link href="https://www.zerofc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.zerofc.cn/"/>
-  <updated>2026-03-19T15:42:25.998Z</updated>
+  <updated>2026-03-28T07:37:42.888Z</updated>
   <id>https://www.zerofc.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【附带小龙虾】VMware 17安装精简CentOS</title>
+    <link href="https://www.zerofc.cn/2026/03/30/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/"/>
+    <id>https://www.zerofc.cn/2026/03/30/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/</id>
+    <published>2026-03-30T12:13:50.000Z</published>
+    <updated>2026-03-28T07:37:42.888Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VMware-17安装"><a href="#VMware-17安装" class="headerlink" title="VMware 17安装"></a>VMware 17安装</h2><ol><li>创建新虚拟机。</li><li>选择经典后点击稍后安装操作系统。</li><li>选择对应型号的系统，比如CentOS 7。</li><li>设置系统安装目录后，一直下一步到看到自定义硬件。</li><li>设置内存和CPU后，选择CD使用ISO镜像后找到下载好的系统镜像包。</li></ol><h2 id="CentOS7安装"><a href="#CentOS7安装" class="headerlink" title="CentOS7安装"></a>CentOS7安装</h2><ol><li>进入虚拟机开始安装系统出现黑屏安装界面。</li><li>选择 “Install CentOS 7”，等待安装后跳出UI设置界面。</li><li>找到 “NETWORK &amp; HOST NAME”，点击 “Ethernet(ens33)” 开启。</li><li>开启后会出现 IP Address、DNS、Mask等信息。</li><li>然后点击按钮 “Begin Installation”，开始进入账户设置。</li><li>点击 “ROOT PASSWORD”，只需输入两遍密码</li><li>等待在UI界面里进行系统安装，最后自动重启进入黑屏界面。</li><li>等待执行完毕后输入前面设置的root密码就可以登陆进入了。</li></ol><h2 id="宝塔安装"><a href="#宝塔安装" class="headerlink" title="宝塔安装"></a>宝塔安装</h2><ol><li>输入命令 ip addr查看内网地址，可以通过xshell连接了。</li><li>连接后安装宝塔，宝塔命令（宝塔面板11.6.0正式版 + OpenClaw小龙虾）</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ -f /usr/bin/curl ];then curl -sSO https://download.bt.cn/install/btClaw.sh;else wget -O btClaw.sh https://download.bt.cn/install/btClaw.sh;fi;bash btClaw.sh op260309</span><br></pre></td></tr></table></figure><h2 id="VMware-17-永久激活密钥"><a href="#VMware-17-永久激活密钥" class="headerlink" title="VMware 17 永久激活密钥"></a>VMware 17 永久激活密钥</h2><p>MC60H-DWHD5-H80U9-6V85M-8280D（亲测有效） </p><p><strong>JU090-6039P-08409-8J0QH-2YR7F</strong></p><p><strong>MC60H-DWHD5-H80U9-6V85M-8280D</strong></p><p>JUO9O-6039P-08409-8J0QH-2YR7F</p><p>4A4RR-813DK-M81A9-4U35H-06KND</p><p>NZ4RR-FTK5H-H81C1-Q30QH-1V2LA</p><p>JU090-6039P-08409-8J0QH-2YR7F</p><p>4Y09U-AJK97-089Z0-A3054-83KLA</p><p>4C21U-2KK9Q-M8130-4V2QH-CF810</p><p>MC60H-DWHD5-H80U9-6V85M-8280D</p><p>ZA30U-DXF84-4850Q-UMMXZ-W6K8F</p><p>AC590-2XW97-48EFZ-TZPQE-MYHEA</p><p>YF39K-DLFE5-H856Z-6NWZE-XQ2XD</p><p>AC15R-FNZ16-H8DWQ-WFPNV-M28E2</p><p>CZ1J8-A0D82-489LZ-ZMZQT-P3KX6</p><p>YA11K-6YE8H-H89ZZ-EXM59-Y6AR0</p><p>pro 17密钥：4A4RR-813DK-M81A9-4U35H-06KND（备用）</p><p>pro 17密钥：NZ4RR-FTK5H-H81C1-Q30QH-1V2LA（备用）</p><p>pro 17密钥：JU090-6039P-08409-8J0QH-2YR7F（备用）</p><p>pro 17密钥：4Y09U-AJK97-089Z0-A3054-83KLA（备用）</p><p>pro 17密钥：4C21U-2KK9Q-M8130-4V2QH-CF810（备用）</p><p>pro 17密钥：MC60H-DWHD5-H80U9-6V85M-8280D（备用）</p><h2 id="个人游戏开发"><a href="#个人游戏开发" class="headerlink" title="个人游戏开发"></a>个人游戏开发</h2><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"> </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;VMware-17安装&quot;&gt;&lt;a href=&quot;#VMware-17安装&quot; class=&quot;headerlink&quot; title=&quot;VMware 17安装&quot;&gt;&lt;/a&gt;VMware 17安装&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;创建新虚拟机。&lt;/li&gt;
+&lt;li&gt;选择经典后点击稍后安装</summary>
+      
+    
+    
+    
+    <category term="其他编程" scheme="https://www.zerofc.cn/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="shell" scheme="https://www.zerofc.cn/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis键空间通知监听</title>
@@ -405,27 +431,6 @@
     
     
     <summary type="html">如何用Blender对模型进行贴图绘制。</summary>
-    
-    
-    
-    <category term="游戏开发" scheme="https://www.zerofc.cn/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="Blender" scheme="https://www.zerofc.cn/tags/Blender/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blender入门教程（一）：模型创建</title>
-    <link href="https://www.zerofc.cn/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/"/>
-    <id>https://www.zerofc.cn/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/</id>
-    <published>2025-05-06T03:13:50.000Z</published>
-    <updated>2026-02-25T06:38:31.553Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>大家都知道，现在AIGC领域日新月异，今天AI大模型能生成粗糙的3D模型，明天就能做成商业级的3D模型，但是如果想要一些细节上也有的，还是需要自己手动对模型的布线进行调整，然后再蒙皮等等。</p><p>所以，AI大模型强大的当下，如果我们是独立开发者或建模爱好者，还是有必要再系统性学习一下基础的建模流程。因为这个世界每当有新技术出现，且能大幅提升生产力的同时，还会继续保有手工的余地的。</p><p>再回到主题，我这个Blender入门教程，其实并不很系统，都是我零零散散实践后总结的。一是给自己做的建模备忘录笔记，二是给同样是作为开发者（非专业建模）的同学，用来快速入门作参考。因为我们职业类似，视角应该也差不多，直接看专业的教程可能比较晦涩，我的虽然粗糙但是浅显易懂呀。</p><h2 id="二、操作"><a href="#二、操作" class="headerlink" title="二、操作"></a>二、操作</h2><h3 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1.新建项目"></a>1.新建项目</h3><p>打开Blender软件，点击常规。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506154809955.png" alt="image-20250506154809955"></p><h3 id="2-添加网格"><a href="#2-添加网格" class="headerlink" title="2.添加网格"></a>2.添加网格</h3><p>进入窗口后，默认有三个物体，分别是：摄像头、灯光、立方体网格，第一次玩的话，可以先不管这些，直接添加一个新的网格，点击 “添加-&gt;网格-&gt;立方体”。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506160226880.png" alt="image-20250506160226880"></p><h3 id="3-编辑模式"><a href="#3-编辑模式" class="headerlink" title="3.编辑模式"></a>3.编辑模式</h3><p>在对网格编辑前，可以先了解一下物体的几个交互模式： 物体模式、编辑模式、雕刻模式、顶点绘制、权重绘制、纹理绘制、姿态模式。</p><p>因为物体有分很多种，比如上面的摄像头网格外，还有骨架、文本等等，而不同的物体就有不同的交互模式，像骨架就没有什么权重绘制什么的。</p><p>网格的就比较多，要对他进行修改，就要选择 “编辑模式”，切换后，左侧工具栏就会多了很多像：挤出选取、环切、倒角、切割等等工具。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506161624710.png" alt="image-20250506161624710"></p><h3 id="4-移动快捷键"><a href="#4-移动快捷键" class="headerlink" title="4.移动快捷键"></a>4.移动快捷键</h3><p>这个是我自己总结的叫法，分别是旋转视图和移动视图，因为在对模型修改时特别常用，所以快捷键用起来很方便。</p><p>旋转视图（拖动时可以查看模型的各个角度的面）：鼠标中键盘，移动视图（拖动时平移窗口）：shift+鼠标中键，缩放视图：滚轮滚动。</p><h3 id="5-模型环切"><a href="#5-模型环切" class="headerlink" title="5.模型环切"></a>5.模型环切</h3><p>选择网格，进入编辑模式，选中网格体，然后工具栏选 “环切”，对每个面添加切线，也可以用快捷键 “Ctrl+R” 按住不放再滚动滚轮，能快速切分网格， 如下图（正&#x2F;上: 4x3，侧: 3x3）。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506192431444.png" alt="image-20250506192431444"></p><h3 id="6-模型挤出面"><a href="#6-模型挤出面" class="headerlink" title="6.模型挤出面"></a>6.模型挤出面</h3><p>点击 选择模式的 “面选择”，然后点击两侧的一个面，用来延伸出类似手臂的挤出面。选中面后点击工具栏的 “挤出选区”，拖出来就可以了。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506192744183.png" alt="image-20250506192744183"></p><h3 id="7-添加镜像生成器"><a href="#7-添加镜像生成器" class="headerlink" title="7.添加镜像生成器"></a>7.添加镜像生成器</h3><p>视图着色方式选择 “线框显示”，工具栏选择 “框选”，然后框选左侧一边后删除顶点。找到属性栏的修改器，添加修改器-&gt;生成-&gt;镜像，因为我们是以Z轴切的，所以对称是Y轴，添加后就可以看到下面图形了。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506193316943.png" alt="image-20250506193316943"></p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E6%A8%A1%E5%9E%8B%E5%88%9B%E5%BB%BA/image-20250506193626337.png" alt="image-20250506193626337"></p><h3 id="8-挤出头部和腿部"><a href="#8-挤出头部和腿部" class="headerlink" title="8.挤出头部和腿部"></a>8.挤出头部和腿部</h3><p>用同样的方法，将头部和腿部用模型挤出面实现，最后我们一个人形的简单模型就创建成功了。当然要建人物模型，这种方法是不对的，我这里只是演示了一下基本创建和变形的用法。</p><h2 id="五、写在后面"><a href="#五、写在后面" class="headerlink" title="五、写在后面"></a>五、写在后面</h2><p>模型创建只是演示，其实我们最主要目的是熟悉布线的基本方法后，用来对AI生成的、别人做好的模型进行修改。而对模型的修改，布线只是小部分调整，最主要还是修改皮肤，然后重新做动画，所以我后面就是纹理绘制和蒙皮、动画了。</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
-    
-    
-    <summary type="html">如何用Blender创建第一个模型。</summary>
     
     
     
