@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>如何用Eclipse运行SpringBoot项目 | ZERO开发</title><meta name="author" content="北桥苏"><meta name="copyright" content="北桥苏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Eclipse下载 官网：https:&#x2F;&#x2F;www.eclipse.org&#x2F;  选择更多版本 “ Download Packages ”     选择Java EE类的 “Eclipse IDE for Enterprise Java and Web Developers”。    选择自己操作系统的版本，以我为例，点击Download Links下x86_64    切换镜像下载，点击 “Sele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何用Eclipse运行SpringBoot项目">
+<meta property="og:url" content="https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="ZERO开发">
+<meta property="og:description" content="Eclipse下载 官网：https:&#x2F;&#x2F;www.eclipse.org&#x2F;  选择更多版本 “ Download Packages ”     选择Java EE类的 “Eclipse IDE for Enterprise Java and Web Developers”。    选择自己操作系统的版本，以我为例，点击Download Links下x86_64    切换镜像下载，点击 “Sele">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zerofc.cn/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/cover.jpg">
+<meta property="article:published_time" content="2026-03-30T15:13:50.000Z">
+<meta property="article:modified_time" content="2026-03-30T15:12:21.150Z">
+<meta property="article:author" content="北桥苏">
+<meta property="article:tag" content="Java语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.zerofc.cn/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/cover.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "如何用Eclipse运行SpringBoot项目",
+  "url": "https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/",
+  "image": "https://www.zerofc.cn/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/cover.jpg",
+  "datePublished": "2026-03-30T15:13:50.000Z",
+  "dateModified": "2026-03-30T15:12:21.150Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "北桥苏",
+      "url": "https://www.zerofc.cn"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7427096263e5395246ffa2aa60b9664b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何用Eclipse运行SpringBoot项目',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="ZERO开发" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">ZERO开发</span></a><a class="nav-page-title" href="/"><span class="site-name">如何用Eclipse运行SpringBoot项目</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-cloud-upload-alt"></i><span> 个人产品</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/mall/"><i class="fa-fw fa-fw fa fa-shopping-bag"></i><span> 资源共享</span></a></li><li><a class="site-page child" href="/webstack/"><i class="fa-fw fa-fw fas fa-tachometer-alt"></i><span> 导航平台</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fa-fw fas fa-gamepad"></i><span> 游戏平台</span></a></li><li><a class="site-page child" href="/wtools/"><i class="fa-fw fa-fw fa fa-briefcase"></i><span> 工具平台</span></a></li><li><a class="site-page child" href="/proc/"><i class="fa-fw fa-fw fa fa-th"></i><span> 项目中心</span></a></li><li><a class="site-page child" href="http://tools.zerofc.cn/"><i class="fa-fw fa-fw fa fa-bookmark"></i><span> 轻量工具</span></a></li><li><a class="site-page child" href="/video/"><i class="fa-fw fa-fw fas fa-video"></i><span> 视频平台</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">如何用Eclipse运行SpringBoot项目</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-03-30T15:13:50.000Z" title="发表于 2026-03-30 23:13:50">2026-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-30T15:12:21.150Z" title="更新于 2026-03-30 23:12:21">2026-03-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/">其他编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h4 id="Eclipse下载"><a href="#Eclipse下载" class="headerlink" title="Eclipse下载"></a>Eclipse下载</h4><ol>
+<li><p>官网：<a href="https://www.eclipse.org/">https://www.eclipse.org/</a></p>
+</li>
+<li><p>选择更多版本 “ <a href="https://www.eclipse.org/downloads/packages/">Download Packages</a> ”</p>
+</li>
+</ol>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774857988424.png" alt="1774857988424"></p>
+<ol start="3">
+<li>选择Java EE类的 “<a href="https://www.eclipse.org/downloads/packages/release/2026-03/r/eclipse-ide-enterprise-java-and-web-developers">Eclipse IDE for Enterprise Java and Web Developers</a>”。</li>
+</ol>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774858094288.png" alt="1774858094288"></p>
+<ol start="4">
+<li>选择自己操作系统的版本，以我为例，点击Download Links下x86_64</li>
+</ol>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774858531402.png" alt="1774858531402"></p>
+<ol start="5">
+<li>切换镜像下载，点击 “Select Another Mirror”，可以找到Asia(亚洲)下的China，点击链接就可以快速下载到本地了。</li>
+</ol>
+<h4 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h4><ol>
+<li><p>下载完毕后解压，然后点击 “eclipse.exe”就可以打开</p>
+</li>
+<li><p>指定工作空间，选择电脑上的一个文件夹</p>
+</li>
+</ol>
+<h4 id="STS插件-安装"><a href="#STS插件-安装" class="headerlink" title="STS插件 安装"></a>STS插件 安装</h4><ol>
+<li>点击 “help”-&gt;”Eclipse Marketplace”。</li>
+<li>搜索 “Spring Tools”，后安装。</li>
+</ol>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774860806932.png" alt="1774860806932"></p>
+<ol start="3">
+<li>查看是否有spring模板</li>
+</ol>
+<p>点击 “File”-&gt;“New”-&gt;”Project”-&gt;”Spring Tool”</p>
+<h4 id="修改Maven位置"><a href="#修改Maven位置" class="headerlink" title="修改Maven位置"></a>修改Maven位置</h4><p>Eclipse中，不设置自己的maven会默认将依赖放到系统盘中，所以需要手动指定一下。</p>
+<ol>
+<li><h5 id="修改maven位置"><a href="#修改maven位置" class="headerlink" title="修改maven位置"></a>修改maven位置</h5></li>
+</ol>
+<p>打开windows-&gt;Preferences-&gt;Maven-&gt;Installations，add添加自己下载在本地的maven根目录。</p>
+<ol start="2">
+<li><h5 id="修改maven设置"><a href="#修改maven设置" class="headerlink" title="修改maven设置"></a>修改maven设置</h5></li>
+</ol>
+<p>还是在maven下，打开User Settins，分别修改User Settins、User Toolchains、Local Repository为自己maven目录下对应的settings.xml文件等。</p>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774877367807.png" alt="1774877367807"></p>
+<h4 id="导入SpringBoot项目"><a href="#导入SpringBoot项目" class="headerlink" title="导入SpringBoot项目"></a>导入SpringBoot项目</h4><ol>
+<li><h5 id="开始导入"><a href="#开始导入" class="headerlink" title="开始导入"></a>开始导入</h5></li>
+</ol>
+<p>点击File-&gt;Import-&gt;Maven-&gt;Maven-&gt;Existing Maven Projects</p>
+<ol start="2">
+<li><h5 id="选择项目勾选pom"><a href="#选择项目勾选pom" class="headerlink" title="选择项目勾选pom"></a>选择项目勾选pom</h5></li>
+</ol>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774878467873.png" alt="1774878467873"></p>
+<ol start="3">
+<li><h5 id="等待maven将依赖下载完毕"><a href="#等待maven将依赖下载完毕" class="headerlink" title="等待maven将依赖下载完毕"></a>等待maven将依赖下载完毕</h5></li>
+</ol>
+<h4 id="项目运行"><a href="#项目运行" class="headerlink" title="项目运行"></a>项目运行</h4><ol>
+<li><h5 id="build配置"><a href="#build配置" class="headerlink" title="build配置"></a>build配置</h5></li>
+</ol>
+<p>右键项目，选择build path-&gt;Configure Build Path，找到Libaries。</p>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774879119231.png" alt="1774879119231"></p>
+<ol start="2">
+<li><h5 id="Java编译设置"><a href="#Java编译设置" class="headerlink" title="Java编译设置"></a>Java编译设置</h5></li>
+</ol>
+<p>Java Build Path中System library选择Alternate JRE，选择自己项目需要的JDK，然后找到Java Compiler，compliance level下拉一个版本。</p>
+<p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774879393099.png" alt="1774879393099"></p>
+<h5 id="3-开始运行"><a href="#3-开始运行" class="headerlink" title="3.开始运行"></a>3.开始运行</h5><p>打开项目的启动类，比如SchoolApplication.java，然后右键Run As，最后就可以看到启动成功了。</p>
+<h2 id="个人游戏开发"><a href="#个人游戏开发" class="headerlink" title="个人游戏开发"></a>个人游戏开发</h2><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"> </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn">北桥苏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/">https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.zerofc.cn" target="_blank">ZERO开发</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java%E8%AF%AD%E8%A8%80/">Java语言</a></div><div class="post-share"><div class="social-share" data-image="/./img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/cover.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>打赏一下~</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/qrcode/wechat_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/wechat_trade.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/qrcode/alipay_trade.jpg" target="_blank"><img class="post-qr-code-img" src="/img/qrcode/alipay_trade.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/03/30/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/" title="【附带小龙虾】VMware 17安装精简CentOS"><img class="cover" src="/./img/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">【附带小龙虾】VMware 17安装精简CentOS</div></div><div class="info-2"><div class="info-item-1">VMware 17安装 创建新虚拟机。 选择经典后点击稍后安装操作系统。 选择对应型号的系统，比如CentOS 7。 设置系统安装目录后，一直下一步到看到自定义硬件。 设置内存和CPU后，选择CD使用ISO镜像后找到下载好的系统镜像包。  CentOS7安装 进入虚拟机开始安装系统出现黑屏安装界面。 选择 “Install CentOS 7”，等待安装后跳出UI设置界面。 找到 “NETWORK &amp; HOST NAME”，点击 “Ethernet(ens33)” 开启。 开启后会出现 IP Address、DNS、Mask等信息。 然后点击按钮 “Begin Installation”，开始进入账户设置。 点击 “ROOT PASSWORD”，只需输入两遍密码 等待在UI界面里进行系统安装，最后自动重启进入黑屏界面。 等待执行完毕后输入前面设置的root密码就可以登陆进入了。  宝塔安装 输入命令 ip addr查看内网地址，可以通过xshell连接了。 连接后安装宝塔，宝塔命令（宝塔面板11.6.0正式版 + OpenClaw小龙虾）  1if [ -f /usr/bi...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/05/29/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSH%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SSH项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSH%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-29</div><div class="info-item-2">Java语言入门：SSH项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言在 Java 企业级开发中，SSH 通常指的是 Struts2 + Spring + Hibernate 的组合。这个组合是一套常用的框架，用于构建 Web 应用程序。 其中Struts2用于处理 Web 请求和响应，实现 MVC（Model-View-Controller）模式；Spring用于实现依赖注入（Dependency Injection）和面向切面编程（Aspect-Oriented Programming）；Hibernate用于实现对象关系映射（Object-Relational Mapping, ORM），简化数据库操作。 早期这三个框架整合需要单独下载jar包的，现在使用Maven的话，只需要在pom中配置好依赖版本，编译的时候就可以自动构建了，下面就以一个简单的maven版SSH项目演示运行一下。 二、项目配置导入这个项目后发现使用了jetty-maven-plugin，pom中也已经添加了struts、spring、hibernate的依赖，点击刷新依赖按钮就等待下载。 1.配置 Struts2在src的项目包下，找到webapp&#x2F;WE...</div></div></div></a><a class="pagination-related" href="/2025/07/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SpringBoot项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASpringBoot%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-28</div><div class="info-item-2">Java语言入门：SpringBoot项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言上次在本地简单部署了一个SSM框架的项目，由于非常繁琐的配置，我这次就试一下现在市面上非常火的SpringBoot。该框架基于Spring框架，由于在很多配置上采用了默认方式，所以在java应用程序构建上非常快速敏捷。 并且它还内嵌了tomcat、Jetty等服务器，使得它能作为一个独立的Jar文件运行，在生产环境上只需要用Nginx用反向代理指向该程序进度。 二、项目配置通过前文关于maven的介绍，这里就跳过了，只按运行流程运行和部署项目。 1.导入项目通过Open导入项目后，IDEA会立刻下载依赖，这时候你也可以去修改pom.xml然后再在Maven中，点击刷新按钮重新下载。 还有一个要注意的是可以给项目指定JDK版本，点击File-&gt;Project Structure-&gt;Project Settings-&gt;Project，找到Project SDK，然后可以根据框架版本切换JDK版本。  2.Artifacts设置还是上面的Project Structure中，Artifacts中添加一个Web Application: Archive，主要用于...</div></div></div></a><a class="pagination-related" href="/2025/06/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" title="Java语言入门：SSM项目搭建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-28</div><div class="info-item-2">Java语言入门：SSM项目搭建</div></div><div class="info-2"><div class="info-item-1">一、前言SSM是一个Java EE框架，也是一个Java企业级开发解决方案，它集成了Spring、Spring MVC和MyBatis三个核心框架。 下面我主要在IDEA中，怎么配置Maven，Tomcat，修改设置运行一套现有的SSM源代码。 二、Maven配置这里的配置，是将前面单独安装和设置好了的Maven放入到IDEA中，让其在编辑器里构建项目时不会走默认的设置。 就比如之前将Jar包更换了默认下载位置，如果不在IDEA中指定还会下载到系统盘中，甚至还会又下载一个新的Maven。 1.导入项目因为我是已经把源码下载到了本地，所以直接点击Open，然后找到项目地址，点击OK就导入进来了。 2.IDEA设置找到File-&gt;Settins-&gt;Build,Execution,Deployment-&gt;Build Tools-&gt;Maven，打开后，主要对Maven Home Directory、User Settins file、Local repository这三个进行修改。 第一个指定maven安装位置的bin目录，第二个就是自己maven的配置文件，第三...</div></div></div></a><a class="pagination-related" href="/2025/05/28/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" title="Java语言入门：项目构建"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-28</div><div class="info-item-2">Java语言入门：项目构建</div></div><div class="info-2"><div class="info-item-1">一、前言上次简单记录了一下Java的单个文件的练习例子，从Hello World的打印到变量声明、数据类型、流程控制等简单的示例。 但是项目往往都是由多个文件组合强关联的，所以基于构建器来创建项目就很有必要了，下面我还是新手视角，用Maven创建Java项目做一个详细的入门总结。 二、Maven安装1.下载https://maven.apache.org/download.cgi 2.maven版本指南因为Java版本和maven版本有关系，比如maven4.x以上的版本必须java 17及以上的，所以我罗列一下这些常用的版本对应关系。    maven版本 Java版本    Maven 3.8.6 Java 8以上   Maven 3.5.4 Java 7以上   Maven 3.0.5 Java 1.6或以上   Maven 4.x Java 17或以上   3.安装解压到电脑下的指定位置，然后找到Maven根目录下的conf文件夹下settings.xml，打开编辑，找到mirrors，添加国内的淘宝镜像，这样可以更快速构建项目。 12345678&lt;mirrors&...</div></div></div></a><a class="pagination-related" href="/2025/05/25/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/" title="Java语言入门：项目运行"><img class="cover" src="/./img/Java%E8%AF%AD%E8%A8%80%E5%85%A5%E9%97%A8%EF%BC%9A%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C/cover.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-25</div><div class="info-item-2">Java语言入门：项目运行</div></div><div class="info-2"><div class="info-item-1">一、前言我有个习惯，学习任何一门编程语言都不喜欢上来就各种重型IDE、项目管理工具。所以，放到Java上，我还是喜欢直接用javac编译，然后直接运行。 二、安装1.安装包下载JDK并安装到本地。 2.操作E:\2setsoft\1dev\jdk1.8.0_77添加到环境变量，改名为JAVA_HOME 3.验证cmd输入javac -version查看版本号，表示成功。 三、项目创建1.创建java单文件比如Hello.java文件。 2.添加打印代码12345678public class HelloWorld &#123;	    public static void main(String[] args) &#123;            System.out.println(&quot;Hello  World! 2025-10-14 13:50&quot;);    &#125;	&#125;  3.编译代码将上面的HelloWorld类编译成class 1javac -encoding UTF-8 HelloWorld.java  运行成功后在当前文件夹下会生成 H...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">北桥苏</div><div class="author-info-description">公众号：ZERO开发</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" href="https://space.bilibili.com/286666708/"><i class="fas fa-video"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/z11r00" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?uin=2652364582&amp;Menu=yes" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">微信公众号：ZERO开发，致力于为猿友们提供有价值的内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Eclipse%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">Eclipse下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Eclipse%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">Eclipse安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#STS%E6%8F%92%E4%BB%B6-%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">STS插件 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9Maven%E4%BD%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">修改Maven位置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9maven%E4%BD%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">修改maven位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9maven%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">修改maven设置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5SpringBoot%E9%A1%B9%E7%9B%AE"><span class="toc-number">5.</span> <span class="toc-text">导入SpringBoot项目</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%AF%BC%E5%85%A5"><span class="toc-number">5.1.</span> <span class="toc-text">开始导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E9%A1%B9%E7%9B%AE%E5%8B%BE%E9%80%89pom"><span class="toc-number">5.2.</span> <span class="toc-text">选择项目勾选pom</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AD%89%E5%BE%85maven%E5%B0%86%E4%BE%9D%E8%B5%96%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%AF%95"><span class="toc-number">5.3.</span> <span class="toc-text">等待maven将依赖下载完毕</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C"><span class="toc-number">6.</span> <span class="toc-text">项目运行</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#build%E9%85%8D%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">build配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Java%E7%BC%96%E8%AF%91%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.2.</span> <span class="toc-text">Java编译设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%BC%80%E5%A7%8B%E8%BF%90%E8%A1%8C"><span class="toc-number">6.3.</span> <span class="toc-text">3.开始运行</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91"><span class="toc-number"></span> <span class="toc-text">个人游戏开发</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/" title="如何用Eclipse运行SpringBoot项目"><img src="/./img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何用Eclipse运行SpringBoot项目"/></a><div class="content"><a class="title" href="/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/" title="如何用Eclipse运行SpringBoot项目">如何用Eclipse运行SpringBoot项目</a><time datetime="2026-03-30T15:13:50.000Z" title="发表于 2026-03-30 23:13:50">2026-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/30/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/" title="【附带小龙虾】VMware 17安装精简CentOS"><img src="/./img/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【附带小龙虾】VMware 17安装精简CentOS"/></a><div class="content"><a class="title" href="/2026/03/30/%E3%80%90%E9%99%84%E5%B8%A6%E5%B0%8F%E9%BE%99%E8%99%BE%E3%80%91VMware%2017%E5%AE%89%E8%A3%85%E7%B2%BE%E7%AE%80CentOS/" title="【附带小龙虾】VMware 17安装精简CentOS">【附带小龙虾】VMware 17安装精简CentOS</a><time datetime="2026-03-30T12:13:50.000Z" title="发表于 2026-03-30 20:13:50">2026-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/03/15/Redis%E9%94%AE%E7%A9%BA%E9%97%B4%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC/" title="Redis键空间通知监听"><img src="/./img/Redis%E9%94%AE%E7%A9%BA%E9%97%B4%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis键空间通知监听"/></a><div class="content"><a class="title" href="/2026/03/15/Redis%E9%94%AE%E7%A9%BA%E9%97%B4%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC/" title="Redis键空间通知监听">Redis键空间通知监听</a><time datetime="2026-03-15T08:13:50.000Z" title="发表于 2026-03-15 16:13:50">2026-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程"><img src="/./img/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的2025年终总结，回归过程"/></a><div class="content"><a class="title" href="/2026/02/15/%E6%88%91%E7%9A%842025%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93%EF%BC%8C%E5%9B%9E%E5%BD%92%E8%BF%87%E7%A8%8B/" title="我的2025年终总结，回归过程">我的2025年终总结，回归过程</a><time datetime="2026-02-15T08:13:50.000Z" title="发表于 2026-02-15 16:13:50">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集"><img src="/./img/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下进程、线程指令合集"/></a><div class="content"><a class="title" href="/2025/11/10/Windows%E4%B8%8B%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%8C%87%E4%BB%A4%E5%90%88%E9%9B%86/" title="Windows下进程、线程指令合集">Windows下进程、线程指令合集</a><time datetime="2025-11-10T08:13:50.000Z" title="发表于 2025-11-10 16:13:50">2025-11-10</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 北桥苏</span></div><div class="footer_custom_text">Copyright© ZERO开发-独立开发者的日常总结<br/><a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备16002525号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  const initGitalk = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGitalk = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const gitalk = new Gitalk({
+      clientID: 'Ov23…………1C6fM',
+      clientSecret: '4304…………44433f77352',
+      repo: 'z11r00.github.io',
+      owner: 'z11r00',
+      admin: ['z11r00'],
+      updateCountCallback: commentCount,
+      ...option,
+      id: isShuoshuo ? path : (option && option.id) || 'f473f7d380d611fb754ff94051951e0d'
+    })
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async(el, path) => {
+    if (typeof Gitalk === 'function') initGitalk(el, path)
+    else {
+      await btf.getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await btf.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Gitalk' === 'Gitalk'
+      ? window.shuoshuoComment = { loadComment: loadGitalk }
+      : window.loadOtherComment = loadGitalk
+    return
+  }
+
+  if ('Gitalk' === 'Gitalk' || !true) {
+    if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

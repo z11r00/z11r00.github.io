@@ -6,7 +6,7 @@
   <link href="https://www.zerofc.cn/atom.xml" rel="self"/>
   
   <link href="https://www.zerofc.cn/"/>
-  <updated>2026-03-28T07:37:42.888Z</updated>
+  <updated>2026-03-30T15:12:21.150Z</updated>
   <id>https://www.zerofc.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何用Eclipse运行SpringBoot项目</title>
+    <link href="https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://www.zerofc.cn/2026/03/30/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/</id>
+    <published>2026-03-30T15:13:50.000Z</published>
+    <updated>2026-03-30T15:12:21.150Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Eclipse下载"><a href="#Eclipse下载" class="headerlink" title="Eclipse下载"></a>Eclipse下载</h4><ol><li><p>官网：<a href="https://www.eclipse.org/">https://www.eclipse.org/</a></p></li><li><p>选择更多版本 “ <a href="https://www.eclipse.org/downloads/packages/">Download Packages</a> ”</p></li></ol><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774857988424.png" alt="1774857988424"></p><ol start="3"><li>选择Java EE类的 “<a href="https://www.eclipse.org/downloads/packages/release/2026-03/r/eclipse-ide-enterprise-java-and-web-developers">Eclipse IDE for Enterprise Java and Web Developers</a>”。</li></ol><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774858094288.png" alt="1774858094288"></p><ol start="4"><li>选择自己操作系统的版本，以我为例，点击Download Links下x86_64</li></ol><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774858531402.png" alt="1774858531402"></p><ol start="5"><li>切换镜像下载，点击 “Select Another Mirror”，可以找到Asia(亚洲)下的China，点击链接就可以快速下载到本地了。</li></ol><h4 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h4><ol><li><p>下载完毕后解压，然后点击 “eclipse.exe”就可以打开</p></li><li><p>指定工作空间，选择电脑上的一个文件夹</p></li></ol><h4 id="STS插件-安装"><a href="#STS插件-安装" class="headerlink" title="STS插件 安装"></a>STS插件 安装</h4><ol><li>点击 “help”-&gt;”Eclipse Marketplace”。</li><li>搜索 “Spring Tools”，后安装。</li></ol><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774860806932.png" alt="1774860806932"></p><ol start="3"><li>查看是否有spring模板</li></ol><p>点击 “File”-&gt;“New”-&gt;”Project”-&gt;”Spring Tool”</p><h4 id="修改Maven位置"><a href="#修改Maven位置" class="headerlink" title="修改Maven位置"></a>修改Maven位置</h4><p>Eclipse中，不设置自己的maven会默认将依赖放到系统盘中，所以需要手动指定一下。</p><ol><li><h5 id="修改maven位置"><a href="#修改maven位置" class="headerlink" title="修改maven位置"></a>修改maven位置</h5></li></ol><p>打开windows-&gt;Preferences-&gt;Maven-&gt;Installations，add添加自己下载在本地的maven根目录。</p><ol start="2"><li><h5 id="修改maven设置"><a href="#修改maven设置" class="headerlink" title="修改maven设置"></a>修改maven设置</h5></li></ol><p>还是在maven下，打开User Settins，分别修改User Settins、User Toolchains、Local Repository为自己maven目录下对应的settings.xml文件等。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774877367807.png" alt="1774877367807"></p><h4 id="导入SpringBoot项目"><a href="#导入SpringBoot项目" class="headerlink" title="导入SpringBoot项目"></a>导入SpringBoot项目</h4><ol><li><h5 id="开始导入"><a href="#开始导入" class="headerlink" title="开始导入"></a>开始导入</h5></li></ol><p>点击File-&gt;Import-&gt;Maven-&gt;Maven-&gt;Existing Maven Projects</p><ol start="2"><li><h5 id="选择项目勾选pom"><a href="#选择项目勾选pom" class="headerlink" title="选择项目勾选pom"></a>选择项目勾选pom</h5></li></ol><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774878467873.png" alt="1774878467873"></p><ol start="3"><li><h5 id="等待maven将依赖下载完毕"><a href="#等待maven将依赖下载完毕" class="headerlink" title="等待maven将依赖下载完毕"></a>等待maven将依赖下载完毕</h5></li></ol><h4 id="项目运行"><a href="#项目运行" class="headerlink" title="项目运行"></a>项目运行</h4><ol><li><h5 id="build配置"><a href="#build配置" class="headerlink" title="build配置"></a>build配置</h5></li></ol><p>右键项目，选择build path-&gt;Configure Build Path，找到Libaries。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774879119231.png" alt="1774879119231"></p><ol start="2"><li><h5 id="Java编译设置"><a href="#Java编译设置" class="headerlink" title="Java编译设置"></a>Java编译设置</h5></li></ol><p>Java Build Path中System library选择Alternate JRE，选择自己项目需要的JDK，然后找到Java Compiler，compliance level下拉一个版本。</p><p><img src="/img/%E5%A6%82%E4%BD%95%E7%94%A8Eclipse%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE/1774879393099.png" alt="1774879393099"></p><h5 id="3-开始运行"><a href="#3-开始运行" class="headerlink" title="3.开始运行"></a>3.开始运行</h5><p>打开项目的启动类，比如SchoolApplication.java，然后右键Run As，最后就可以看到启动成功了。</p><h2 id="个人游戏开发"><a href="#个人游戏开发" class="headerlink" title="个人游戏开发"></a>个人游戏开发</h2><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"> </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;Eclipse下载&quot;&gt;&lt;a href=&quot;#Eclipse下载&quot; class=&quot;headerlink&quot; title=&quot;Eclipse下载&quot;&gt;&lt;/a&gt;Eclipse下载&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;官网：&lt;a href=&quot;https://www.eclipse.o</summary>
+      
+    
+    
+    
+    <category term="其他编程" scheme="https://www.zerofc.cn/categories/%E5%85%B6%E4%BB%96%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="Java语言" scheme="https://www.zerofc.cn/tags/Java%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>【附带小龙虾】VMware 17安装精简CentOS</title>
@@ -410,27 +435,6 @@
     
     
     <summary type="html">如何用Blender对模型进行骨骼绑定。</summary>
-    
-    
-    
-    <category term="游戏开发" scheme="https://www.zerofc.cn/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="Blender" scheme="https://www.zerofc.cn/tags/Blender/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blender入门教程（二）：纹理绘制</title>
-    <link href="https://www.zerofc.cn/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/"/>
-    <id>https://www.zerofc.cn/2025/05/06/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/</id>
-    <published>2025-05-06T05:13:50.000Z</published>
-    <updated>2026-02-25T06:38:31.553Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>通过上一篇文章的简单介绍，我们就可以独立完成模型的创建，但还只是一些灰溜溜的轮廓，少了鲜艳的表皮。所以，这篇文章就开始介绍如何制作皮肤，就是给模型着色，下面就用一个立方体做示例了。</p><h2 id="二、UV编辑"><a href="#二、UV编辑" class="headerlink" title="二、UV编辑"></a>二、UV编辑</h2><h3 id="1-标记缝合边"><a href="#1-标记缝合边" class="headerlink" title="1.标记缝合边"></a>1.标记缝合边</h3><p>选中物体，进入编辑模式后，选择 “边选择模式”，点击物体的一个边，按 “shift” 选中了多个边。怎么选择看你自己对物体剖开的边，UV编辑就是相当于对一个立方体的空包装盒展开平铺。</p><p>选择了多个边后，右键选择 “标记缝合边”，此时的这几条边会加粗显示，代表成功标记，然后打开导航栏的 “UV编辑”。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507144014979.png" alt="image-20250507144014979"></p><h3 id="2-UV展开"><a href="#2-UV展开" class="headerlink" title="2.UV展开"></a>2.UV展开</h3><p>进入UV编辑后，会有两个窗口，一般左边是展开的样子，右边是模型的样子。但是刚开始左边是没有UV的，这时候我们在右边的模型的全选，可以直接快捷键 “A”，也可以点击 “选择”-&gt; “全部”，然后左边就可以看到展开后的样子了。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507144418331.png" alt="image-20250507144418331"></p><h2 id="三、着色编辑"><a href="#三、着色编辑" class="headerlink" title="三、着色编辑"></a>三、着色编辑</h2><h3 id="1-进入着色器编辑"><a href="#1-进入着色器编辑" class="headerlink" title="1.进入着色器编辑"></a>1.进入着色器编辑</h3><p>进入着色器编辑有两种方式，一种是回到导航栏的 “布局”，在下面部分，时间轴点击 “编辑器类型”（回放的左边），然后选择 “着色器编辑器”。另一个就直接点击导航栏的 “着色”。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507144928988.png" alt="image-20250507144928988"></p><h3 id="2-添加纹理"><a href="#2-添加纹理" class="headerlink" title="2.添加纹理"></a>2.添加纹理</h3><p>进入着色编辑器后，点击 “添加”-&gt;“纹理”-&gt;“图像纹理”，然后将新弹出的纹理的 “颜色” 连接到“原理化BSDF”的 “基础色”。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507145448757.png" alt="image-20250507145448757"></p><h3 id="3-新建图像"><a href="#3-新建图像" class="headerlink" title="3.新建图像"></a>3.新建图像</h3><p>新建图像就是给UV上色后的一张图片，也就是模型导出后的皮肤图。找到刚刚添加的那个图像纹理，然后点击 “新建”，输入名称，其他的默认就可以，最后点击确定。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507145913297.png" alt="image-20250507145913297"></p><h2 id="四、纹理绘制"><a href="#四、纹理绘制" class="headerlink" title="四、纹理绘制"></a>四、纹理绘制</h2><h3 id="1-进入纹理绘制"><a href="#1-进入纹理绘制" class="headerlink" title="1.进入纹理绘制"></a>1.进入纹理绘制</h3><p>找到导航栏里的 “纹理绘制”，一般也有有两个窗口，左边是UV展开，右边是模型，一开始都是黑色的。不过要先确认一下左边UV展开窗口上面，是不是显示图像绘制，关联的图像是不是你新建图像的名称。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507150451703.png" alt="image-20250507150451703"></p><h3 id="2-开始绘制"><a href="#2-开始绘制" class="headerlink" title="2.开始绘制"></a>2.开始绘制</h3><p>绘制就在右边窗口，可以旋转角度的上色，我这里是直接填充蓝色，然后再切换到自由线（画笔），在一个面上涂上绿色，用作区别。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507150901683.png" alt="image-20250507150901683"></p><h3 id="3-保存图像"><a href="#3-保存图像" class="headerlink" title="3.保存图像"></a>3.保存图像</h3><p>绘制完毕后，在左边UV展开窗口上面，找到 “图像”，然后保存，这样就把绘制的皮肤存下来的，后面如果你导出模型出来，要和这张图一起发给别人。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507151346938.png" alt="image-20250507151346938"></p><h2 id="五、预览和导出"><a href="#五、预览和导出" class="headerlink" title="五、预览和导出"></a>五、预览和导出</h2><h3 id="1-预览"><a href="#1-预览" class="headerlink" title="1.预览"></a>1.预览</h3><p>绘制和保存图像后，如果我们要先整体预览一下，可以回到导航栏的 “布局” 或者 “建模”，只需要把着色方式改成 “材质预览” 就可以了。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507151718388.png" alt="image-20250507151718388"></p><h3 id="2-导出"><a href="#2-导出" class="headerlink" title="2.导出"></a>2.导出</h3><p>导出的格式有很多，我就以常用的FBX为例，但需要注意的是，纹理有两种，一种是分开为单独的图片，另一种是纹理直接内嵌到FBX中。</p><p>点击导出，选择FBX，弹出的窗口，路径模式，如果是内嵌式纹理，要选择 “复制”，然后把右边的小图标打开，最后导出就可以了。</p><p><img src="/img/Blender%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BA%B9%E7%90%86%E7%BB%98%E5%88%B6/image-20250507152424356.png" alt="image-20250507152424356"></p><h2 id="六、写在后面"><a href="#六、写在后面" class="headerlink" title="六、写在后面"></a>六、写在后面</h2><p>经过这一顿操作，就可以结合布线，拿现有的模型就行调整了，比如换皮肤加一些装饰等等。但只是静态的，要想在游戏中使用或者对游戏改Mod，还需要做骨骼绑定，制作动画，所以接下来就是Blender这方面的实操了，敬请期待~</p><p><img src="https://www.zerofc.cn/img/PHP%E5%A6%82%E4%BD%95%E5%9C%A8Windows%E4%B8%AD%E5%AE%9A%E4%B9%89CMD%E5%91%BD%E4%BB%A4/image-20240805201033707.png" alt="image-20250408192801332"></p>]]></content>
-    
-    
-    <summary type="html">如何用Blender对模型进行贴图绘制。</summary>
     
     
     
