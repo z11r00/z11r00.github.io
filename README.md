@@ -313,6 +313,7 @@
 - [Tool321_不可错过任何一个工具](http://tool321.com/cn/index.html)
 - [Web前端导航](http://www.alloyteam.com/nav/)
 - [前端文档工具](http://www.css88.com/nav/)
+- [资料星球 · AI 学习资料目录](https://resources.packscena.com/categories/ai/)【按主题查找中文 AI 入门、提示词和编程参考，可先查看条目用途】
 
 **在线工具：**
 
